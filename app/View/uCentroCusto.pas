@@ -13,10 +13,10 @@ type
   TfrmCentroCusto = class(TFrameBase)
     UniDBEdit1: TUniDBEdit;
     UniDBEdit2: TUniDBEdit;
-    FDQryFiltroCODCENTRO: TIntegerField;
-    FDQryFiltroDESCENTRO: TStringField;
-    FDQryCadCODCENTRO: TIntegerField;
+    FDQryCadCODIGO: TIntegerField;
     FDQryCadDESCENTRO: TStringField;
+    FDQryFiltroCODIGO: TIntegerField;
+    FDQryFiltroDESCENTRO: TStringField;
   private
     { Private declarations }
   public

@@ -60,6 +60,7 @@ type
     FDQryFiltroRESPON_UNIDADE: TStringField;
     FDQryFiltroEMAIL: TStringField;
     FDQryFiltroTELEFONES: TStringField;
+    procedure UniFrameCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,5 +75,11 @@ implementation
 {$R *.dfm}
 
 uses MainModule;
+
+procedure TfrmCadUnidade.UniFrameCreate(Sender: TObject);
+begin
+  inherited;
+  UniDBEdit2.SetFocus;
+end;
 
 end.

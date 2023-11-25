@@ -13,7 +13,7 @@ inherited frmCentroCusto: TfrmCentroCusto
             Height = 36
             Hint = ''
             Enabled = False
-            DataField = 'CODCENTRO'
+            DataField = 'CODIGO'
             DataSource = dsCad
             TabOrder = 0
             Color = 60652
@@ -39,7 +39,7 @@ inherited frmCentroCusto: TfrmCentroCusto
   inherited FDQryCad: TRESTDWClientSQL
     FieldDefs = <
       item
-        Name = 'CODCENTRO'
+        Name = 'CODIGO'
         Attributes = [faRequired]
         DataType = ftInteger
       end
@@ -51,24 +51,23 @@ inherited frmCentroCusto: TfrmCentroCusto
       item
         DataType = ftInteger
       end>
-    SequenceField = 'CODCENTRO'
+    SequenceName = 'GEN_CENTROCUSTRO_ID'
+    SequenceField = 'CODIGO'
     BinaryRequest = True
     Params = <
       item
-        DataType = ftInteger
-        Name = 'CODCENTRO'
+        DataType = ftString
+        Name = 'CODIGO'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
-      
-        'Select CODCENTRO, DESCENTRO From CENTROCUSTRO WHERE CODCENTRO=:C' +
-        'ODCENTRO')
-    UpdateTableName = 'CAB_RELATORIOS'
-    object FDQryCadCODCENTRO: TIntegerField
-      FieldName = 'CODCENTRO'
+      'Select CODIGO, DESCENTRO From CENTROCUSTRO WHERE CODIGO=:CODIGO')
+    UpdateTableName = 'CENTROCUSTRO'
+    object FDQryCadCODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object FDQryCadDESCENTRO: TStringField
       FieldName = 'DESCENTRO'
@@ -78,7 +77,7 @@ inherited frmCentroCusto: TfrmCentroCusto
   inherited FDQryFiltro: TRESTDWClientSQL
     FieldDefs = <
       item
-        Name = 'CODCENTRO'
+        Name = 'CODIGO'
         Attributes = [faRequired]
         DataType = ftInteger
       end
@@ -100,13 +99,14 @@ inherited frmCentroCusto: TfrmCentroCusto
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODCENTRO, DESCENTRO From CENTROCUSTRO WHERE DESCENTRO LI' +
-        'KE :DESCENTRO || '#39'%'#39
-      'ORDER BY CODCENTRO')
+        'Select CODIGO, DESCENTRO From CENTROCUSTRO WHERE DESCENTRO LIKE ' +
+        ':DESCENTRO || '#39'%'#39
+      'ORDER BY CODIGO')
     UpdateTableName = 'CENTROCUSTRO'
-    object FDQryFiltroCODCENTRO: TIntegerField
+    object FDQryFiltroCODIGO: TIntegerField
       DisplayLabel = 'C'#211'DIGO'
-      FieldName = 'CODCENTRO'
+      DisplayWidth = 15
+      FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end

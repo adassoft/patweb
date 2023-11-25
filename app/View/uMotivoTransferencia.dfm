@@ -50,14 +50,16 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
         Size = 100
       end
       item
+        Name = 'FDQryCadField3'
         DataType = ftSmallint
       end>
     AutoIncAsInteger = True
+    SequenceName = 'GEN_MOTIVOSTRANSFERENCIA_ID'
     SequenceField = 'CODIGO'
     BinaryRequest = True
     Params = <
       item
-        DataType = ftString
+        DataType = ftSmallint
         Name = 'CODIGO'
         ParamType = ptInput
       end>
@@ -66,10 +68,11 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
       
         'Select CODIGO, MOTIVO From MOTIVOSTRANSFERENCIA WHERE CODIGO=:CO' +
         'DIGO')
+    UpdateTableName = 'MOTIVOSTRANSFERENCIA'
     object FDQryCadCODIGO: TSmallintField
+      AutoGenerateValue = arAutoInc
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object FDQryCadMOTIVO: TStringField
       FieldName = 'MOTIVO'
@@ -89,6 +92,7 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
         Size = 100
       end
       item
+        Name = 'FDQryFiltroField3'
         DataType = ftSmallint
       end>
     SequenceName = ''

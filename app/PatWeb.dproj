@@ -137,10 +137,7 @@
         </DCCReference>
         <DCCReference Include="Controller\ClassAlert.pas"/>
         <DCCReference Include="Controller\ClassAuxiliar.pas"/>
-        <DCCReference Include="Controller\ClassDashBoardHome.pas"/>
-        <DCCReference Include="Controller\ClassLogin.pas"/>
         <DCCReference Include="Controller\uniSweetAlert.pas"/>
-        <DCCReference Include="Controller\Unit_Captcha.pas"/>
         <DCCReference Include="Model\UDmLogin.pas">
             <Form>DMLogin</Form>
             <FormType>dfm</FormType>
@@ -156,7 +153,6 @@
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="Controller\ClassIGrowl.pas"/>
         <DCCReference Include="View\uGrupo.pas">
             <Form>frmGrupos</Form>
             <FormType>dfm</FormType>

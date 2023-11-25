@@ -323,33 +323,4 @@ object FrameBase: TFrameBase
     Left = 660
     Top = 368
   end
-  object FDQryPK: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <>
-    SortOrder = soAsc
-    SortCaseSens = scYes
-    SortFields = ''
-    AutoSortOnOpen = True
-    AutoRefreshOnFilterChanged = True
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <>
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ReflectChanges = False
-    Left = 660
-    Top = 210
-  end
-  object dsPK: TDataSource
-    DataSet = FDQryPK
-    Left = 756
-    Top = 226
-  end
 end

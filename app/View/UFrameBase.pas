@@ -41,8 +41,6 @@ type
     FDQryFiltro: TRESTDWClientSQL;
     UniPanel1: TUniPanel;
     UniScrollBox1: TUniScrollBox;
-    FDQryPK: TRESTDWClientSQL;
-    dsPK: TDataSource;
     function CamposValidados :Boolean;
     procedure PersonalizarButtom;
     procedure UniFrameCreate(Sender: TObject);
@@ -167,19 +165,7 @@ Begin
 
          if FDQryCad.State in [dsInsert,dsEdit] then
            Begin
-             // Se o campo codigo tiver valor igual a -1 faz consulta usado o FDQryPK
-             // pegando o código de maior valor somando mais 1
-             if FDQryCad.FieldByName('CODIGO').AsInteger = -1 then
-             begin
-             ShowMessage('Passou aqui');
-               FDQryPK.Close;
-               FDQryPK.Open;
-               if FDQryPK.RecordCount > 0 then
-               begin
-                FDQryCad.FieldByName('CODIGO').AsInteger := FDQryPK.FieldByName('CODIGO').AsInteger+1;
-               end else
-                FDQryCad.FieldByName('CODIGO').AsInteger := 1;
-             end;
+
              FDQryCad.Post;
 
              If Not  FDQryCad.ApplyUpdates(vError) Then
@@ -235,16 +221,12 @@ procedure TFrameBase.BtIncClick(Sender: TObject);
       FDQryCad.Open;
 
     FDQryCad.Insert ;
-    // Inicia o campo pk com -1 para facilitar buscar o próximo registro no
-    // momento de salvar
-    FDQryCad.FieldByName('CODIGO').AsInteger := -1;
 
     PageCadastro.ActivePage := Tab2 ;
        // Visualizando a Tab2
     PageCadastro.Pages[0].TabVisible := False ;
     PageCadastro.Pages[1].TabVisible := True ;
        // Foco na segunda aba
-
 
 end;
 

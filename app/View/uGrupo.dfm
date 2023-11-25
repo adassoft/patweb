@@ -26,7 +26,7 @@ inherited frmGrupos: TfrmGrupos
             Height = 36
             Hint = ''
             Enabled = False
-            DataField = 'CODIGOGRUPO'
+            DataField = 'CODIGO'
             DataSource = dsCad
             TabOrder = 1
             Color = 60652
@@ -40,41 +40,82 @@ inherited frmGrupos: TfrmGrupos
   inherited FDQryCad: TRESTDWClientSQL
     FieldDefs = <
       item
-        Name = 'CODIGOGRUPO'
+        Name = 'CODIGO'
         Attributes = [faRequired]
         DataType = ftInteger
       end
       item
         Name = 'DESGRUPO'
         DataType = ftString
-        Size = 60
+        Size = 100
       end
       item
         DataType = ftInteger
       end>
+    SequenceName = 'GEN_GRUPO_ID'
+    SequenceField = 'CODIGO'
     BinaryRequest = True
     Params = <
       item
+        DataType = ftString
+        Name = 'CODIGO'
+        ParamType = ptInput
+      end>
+    DataBase = UniMainModule.RESTDWIdDatabase
+    SQL.Strings = (
+      'Select CODIGO, DESGRUPO From GRUPO WHERE CODIGO=:CODIGO')
+    UpdateTableName = 'GRUPO'
+    object FDQryCadCODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object FDQryCadDESGRUPO: TStringField
+      FieldName = 'DESGRUPO'
+      Size = 100
+    end
+  end
+  inherited FDQryFiltro: TRESTDWClientSQL
+    FieldDefs = <
+      item
+        Name = 'CODIGO'
+        Attributes = [faRequired]
         DataType = ftInteger
-        Name = 'CODIGOGRUPO'
+      end
+      item
+        Name = 'DESGRUPO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        DataType = ftInteger
+      end>
+    SequenceName = 'GEN_GRUPO_ID'
+    SequenceField = 'CODIGO'
+    BinaryRequest = True
+    Params = <
+      item
+        DataType = ftString
+        Name = 'DESGRUPO'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGOGRUPO, DESGRUPO From GRUPO WHERE CODIGOGRUPO=:CODIG' +
-        'OGRUPO')
-    UpdateTableName = 'GRUPO'
-    object FDQryCadCODIGOGRUPO: TIntegerField
+        'Select CODIGO, DESGRUPO From GRUPO WHERE DESGRUPO LIKE :DESGRUPO' +
+        ' || '#39'%'#39
+      'ORDER BY CODIGO')
+    object FDQryFiltroCODIGO: TIntegerField
+      AutoGenerateValue = arAutoInc
       DisplayLabel = 'C'#211'DIGO'
-      FieldName = 'CODIGOGRUPO'
+      DisplayWidth = 15
+      FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
-    object FDQryCadDESGRUPO: TStringField
+    object FDQryFiltroDESGRUPO: TStringField
       DisplayLabel = 'DESCRI'#199#195'O'
       FieldName = 'DESGRUPO'
-      Size = 60
+      Size = 100
     end
   end
 end

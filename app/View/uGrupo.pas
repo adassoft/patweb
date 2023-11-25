@@ -11,10 +11,12 @@ uses
 
 type
   TfrmGrupos = class(TFrameBase)
-    FDQryCadCODIGOGRUPO: TIntegerField;
-    FDQryCadDESGRUPO: TStringField;
     UniDBEdit2: TUniDBEdit;
     UniDBEdit1: TUniDBEdit;
+    FDQryCadCODIGO: TIntegerField;
+    FDQryCadDESGRUPO: TStringField;
+    FDQryFiltroCODIGO: TIntegerField;
+    FDQryFiltroDESGRUPO: TStringField;
   private
     { Private declarations }
   public

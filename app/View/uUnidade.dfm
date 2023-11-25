@@ -3,8 +3,9 @@ inherited frmCadUnidade: TfrmCadUnidade
   ExplicitHeight = 900
   inherited PageCadastro: TUniPageControl
     Height = 847
-    ActivePage = Tab2
+    ExplicitHeight = 847
     inherited Tab1: TUniTabSheet
+      ExplicitHeight = 819
       inherited UniPnlPesquisar: TUniPanel
         inherited BtFiltrar: TUniBitBtn
           ImageIndex = 14
@@ -12,11 +13,45 @@ inherited frmCadUnidade: TfrmCadUnidade
       end
       inherited UniDBGrid1: TUniDBGrid
         Height = 766
+        LoadMask.Message = 'Carregando dados...'
+        Columns = <
+          item
+            FieldName = 'CODIGO'
+            Title.Caption = 'C'#211'DIGO'
+            Width = 94
+          end
+          item
+            FieldName = 'ORGAO'
+            Title.Caption = #211'RG'#195'O'
+            Width = 244
+          end
+          item
+            FieldName = 'UNIDADE'
+            Title.Caption = 'UNIDADE'
+            Width = 244
+          end
+          item
+            FieldName = 'RESPON_UNIDADE'
+            Title.Caption = 'RESPONS'#193'VEL'
+            Width = 244
+          end
+          item
+            FieldName = 'TELEFONES'
+            Title.Caption = 'TELEFONE'
+            Width = 244
+          end
+          item
+            FieldName = 'EMAIL'
+            Title.Caption = 'EMAIL'
+            Width = 484
+          end>
       end
     end
     inherited Tab2: TUniTabSheet
+      ExplicitHeight = 819
       inherited UniPanel1: TUniPanel
         Height = 819
+        ExplicitHeight = 819
         inherited UniScrollBox1: TUniScrollBox
           Height = 819
           ExplicitHeight = 819
@@ -262,9 +297,6 @@ inherited frmCadUnidade: TfrmCadUnidade
               Font.Height = -19
               Font.Name = 'Calibri'
               TabOrder = 1
-              ExplicitLeft = 58
-              ExplicitTop = -1
-              ExplicitWidth = 287
             end
           end
           object UniDBHTMLMemo1: TUniDBHTMLMemo
@@ -321,7 +353,6 @@ inherited frmCadUnidade: TfrmCadUnidade
               Font.Height = -19
               Font.Name = 'Calibri'
               TabOrder = 1
-              ExplicitWidth = 288
             end
           end
           object UniDBHTMLMemo2: TUniDBHTMLMemo
@@ -378,7 +409,6 @@ inherited frmCadUnidade: TfrmCadUnidade
               Font.Height = -19
               Font.Name = 'Calibri'
               TabOrder = 1
-              ExplicitWidth = 337
             end
           end
           object UniDBHTMLMemo3: TUniDBHTMLMemo
@@ -398,6 +428,7 @@ inherited frmCadUnidade: TfrmCadUnidade
   end
   inherited UniContainerPanel2: TUniContainerPanel
     Top = 889
+    ExplicitTop = 889
   end
   inherited UniNativeImageList1: TUniNativeImageList
     Left = 840
@@ -487,8 +518,11 @@ inherited frmCadUnidade: TfrmCadUnidade
         Size = 8
       end
       item
+        Name = 'FDQryCadField18'
         DataType = ftSmallint
       end>
+    SequenceName = 'GEN_UNIDADE_ID'
+    SequenceField = 'CODIGO'
     BinaryRequest = True
     Params = <
       item
@@ -507,9 +541,9 @@ inherited frmCadUnidade: TfrmCadUnidade
     Left = 852
     Top = 232
     object FDQryCadCODIGO: TSmallintField
+      AutoGenerateValue = arAutoInc
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object FDQryCadORGAO: TStringField
       FieldName = 'ORGAO'
@@ -634,11 +668,14 @@ inherited frmCadUnidade: TfrmCadUnidade
     Left = 852
     Top = 312
     object FDQryFiltroCODIGO: TSmallintField
+      DisplayLabel = 'C'#211'DIGO'
+      DisplayWidth = 15
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object FDQryFiltroORGAO: TStringField
+      DisplayLabel = #211'RG'#195'O'
       FieldName = 'ORGAO'
       Size = 40
     end
@@ -647,6 +684,7 @@ inherited frmCadUnidade: TfrmCadUnidade
       Size = 40
     end
     object FDQryFiltroRESPON_UNIDADE: TStringField
+      DisplayLabel = 'RESPONS'#193'VEL'
       FieldName = 'RESPON_UNIDADE'
       Size = 40
     end
@@ -655,19 +693,10 @@ inherited frmCadUnidade: TfrmCadUnidade
       Size = 80
     end
     object FDQryFiltroTELEFONES: TStringField
+      DisplayLabel = 'TELEFONE'
       FieldName = 'TELEFONES'
+      EditMask = '!\(99\) 9 0000-0000;0;_'
       Size = 40
     end
-  end
-  inherited FDQryPK: TRESTDWClientSQL
-    DataBase = UniMainModule.RESTDWIdDatabase
-    SQL.Strings = (
-      'Select'
-      '    Max(UNIDADE) As CODIGO'
-      'From'
-      '    UNIDADE')
-    UpdateTableName = 'UNIDADE'
-    Left = 756
-    Top = 162
   end
 end

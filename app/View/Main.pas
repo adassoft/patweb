@@ -56,7 +56,7 @@ implementation
 
 uses
   uniGUIVars, MainModule, uniGUIApplication, uUnidade, uCentroCusto,
-  uMotivoTransferencia;
+  uMotivoTransferencia, uGrupo;
 
 function MainForm: TMainForm;
 begin
@@ -70,7 +70,7 @@ end;
 
 procedure TMainForm.Grupos1Click(Sender: TObject);
 begin
-  NovaAba(TFrame(TfrmCentroCusto),'Grupo',True);
+  NovaAba(TFrame(TfrmGrupos),'Grupo',True);
 end;
 
 procedure TMainForm.Motivosdetransferncia1Click(Sender: TObject);
