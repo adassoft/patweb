@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3CD95CD8-F944-4FE9-AA26-C7BCEAB71397}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="servidor\ServeridorPatWeb.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="app\PatWeb.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ServeridorPatWeb">
+        <MSBuild Projects="servidor\ServeridorPatWeb.dproj"/>
+    </Target>
+    <Target Name="ServeridorPatWeb:Clean">
+        <MSBuild Projects="servidor\ServeridorPatWeb.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ServeridorPatWeb:Make">
+        <MSBuild Projects="servidor\ServeridorPatWeb.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PatWeb">
+        <MSBuild Projects="app\PatWeb.dproj"/>
+    </Target>
+    <Target Name="PatWeb:Clean">
+        <MSBuild Projects="app\PatWeb.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PatWeb:Make">
+        <MSBuild Projects="app\PatWeb.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ServeridorPatWeb;PatWeb"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ServeridorPatWeb:Clean;PatWeb:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ServeridorPatWeb:Make;PatWeb:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
