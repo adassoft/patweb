@@ -1,8 +1,20 @@
 object UniMainModule: TUniMainModule
-  Theme = 'crisp'
+  Theme = 'gray'
   MonitoredKeys.Keys = <>
   EnableSynchronousOperations = True
+  ServerMessages.UnavailableErrMsg = 'Erro de comunica'#231#227'o'
   ServerMessages.LoadingMessage = 'Carregando...'
+  ServerMessages.InvalidSessionTemplate.Strings = (
+    '<html>'
+    '<body bgcolor="#dfe8f6">'
+    '<p style="text-align:center;color:#0000A0">[###message###]</p>'
+    
+      '<p style="text-align:center;color:#A05050"><a href="[###url###]"' +
+      '>Reiniciar a aplica'#231#227'o</a></p>'
+    '</body>'
+    '</html>')
+  ServerMessages.InvalidSessionMessage = 'Sess'#227'o inv'#225'lida ou tempo limite de sess'#227'o expirado.'
+  ServerMessages.TerminateMessage = 'Sess'#227'o da Web encerrada.'
   Height = 480
   Width = 640
   object RESTDWIdDatabase: TRESTDWIdDatabase
@@ -10,11 +22,10 @@ object UniMainModule: TUniMainModule
     ContentType = 'application/x-www-form-urlencoded'
     Charset = 'utf8'
     ContentEncoding = 'gzip, identity'
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '127.0.0.1'
     IgnoreEchoPooler = False
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True

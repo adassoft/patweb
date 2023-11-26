@@ -15,7 +15,6 @@ type
     PagePrincipal: TUniPageControl;
     TabHome: TUniTabSheet;
     UniStatusBar1: TUniStatusBar;
-    UniTreeMenu1: TUniTreeMenu;
     UniMenuItems1: TUniMenuItems;
     Arquivo1: TUniMenuItem;
     Cadastro1: TUniMenuItem;
@@ -35,6 +34,9 @@ type
     UniTimer1Timer: TUniTimer;
     UniScreenMask1: TUniScreenMask;
     UniURLFramePrincipal: TUniURLFrame;
+    UniTreeMenu1: TUniTreeMenu;
+    Cidades1: TUniMenuItem;
+    Setores1: TUniMenuItem;
     procedure UniFormCreate(Sender: TObject);
     procedure UniLblButtoDrowerClick(Sender: TObject);
     procedure Unidadeadministrativa1Click(Sender: TObject);
@@ -42,6 +44,10 @@ type
     procedure Centrodecusto1Click(Sender: TObject);
     procedure Grupos1Click(Sender: TObject);
     procedure Motivosdetransferncia1Click(Sender: TObject);
+    procedure Categorias1Click(Sender: TObject);
+    procedure Pessoas1Click(Sender: TObject);
+    procedure Cidades1Click(Sender: TObject);
+    procedure Setores1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,17 +62,28 @@ implementation
 
 uses
   uniGUIVars, MainModule, uniGUIApplication, uUnidade, uCentroCusto,
-  uMotivoTransferencia, uGrupo;
+  uMotivoTransferencia, uGrupo, uCategoria, UPessoa, uCidade, uUF, uSetor;
 
 function MainForm: TMainForm;
 begin
   Result := TMainForm(UniMainModule.GetFormInstance(TMainForm));
 end;
 
+procedure TMainForm.Categorias1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfrmCategoria), 'Categoria', True);
+end;
+
 procedure TMainForm.Centrodecusto1Click(Sender: TObject);
 begin
   NovaAba(TFrame(TfrmCentroCusto),'Centro de custo',True);
 end;
+
+procedure TMainForm.Cidades1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfrmCidades), 'Cidades', True);
+end;
+
 
 procedure TMainForm.Grupos1Click(Sender: TObject);
 begin
@@ -107,6 +124,16 @@ begin
         end;
       Refresh;
       pagePrincipal.ActivePage := TabSheet;
+end;
+
+procedure TMainForm.Pessoas1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfrmCadPessoa), 'Pessoa', True);
+end;
+
+procedure TMainForm.Setores1Click(Sender: TObject);
+begin
+  NovaAba(TFrame(TfrmSetor), 'Setores', True);
 end;
 
 procedure TMainForm.Unidadeadministrativa1Click(Sender: TObject);

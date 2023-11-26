@@ -24,7 +24,6 @@ type
     Tab1: TUniTabSheet;
     UniPnlPesquisar: TUniPanel;
     EdPesquisar: TUniEdit;
-    LblPesquisa: TUniLabel;
     UniDBGrid1: TUniDBGrid;
     Tab2: TUniTabSheet;
     UniContainerPanel2: TUniContainerPanel;
@@ -55,6 +54,7 @@ type
     procedure PageCadastroChange(Sender: TObject);
     procedure UniDBGrid1DblClick(Sender: TObject);
     procedure BtFiltrarClick(Sender: TObject);
+    procedure EdPesquisarEnter(Sender: TObject);
 
   private
     { Private declarations }
@@ -73,6 +73,7 @@ uses
 { TFrameBase }
 
 // Botão Alterar
+
 procedure TFrameBase.BtAltClick(Sender: TObject);
 var i : integer; Cmp:String;
 begin
@@ -89,6 +90,7 @@ begin
       FDQryCad.Params[i].Value :=  FDQryFiltro.FieldbyName(Cmp).Value ;
    end;
     FDQryCad.Open;
+    // Chamar procedure para atualizar cidade
   Except
    UniAlert.SwAlerta('ATENÇÃO' , 'Você precisa selecionar um registro para fazer manutenção do mesmo.' , Aviso , 3000);
 
@@ -316,6 +318,13 @@ begin
 
 end;
 
+
+
+procedure TFrameBase.EdPesquisarEnter(Sender: TObject);
+begin
+
+end;
+
 // Change do PagControl
 procedure TFrameBase.PageCadastroChange(Sender: TObject);
 begin
@@ -408,10 +417,10 @@ procedure TFrameBase.BtFiltrarClick(Sender: TObject);
 
     for i := 0 to  FDQryFiltro.Params.Count-1 do
         Begin
-          If LblPesquisa.Tag = 1 then
+          //If LblPesquisa.Tag = 1 then
+          //    FDQryFiltro.Params[i].AsString := '%'+EdPesquisar.Text
+          //Else
               FDQryFiltro.Params[i].AsString := '%'+EdPesquisar.Text
-          Else
-              FDQryFiltro.Params[i].AsString := EdPesquisar.Text
         End;
 
      FDQryFiltro.Open;

@@ -75,7 +75,7 @@ object FrameBase: TFrameBase
           'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.ba' +
           'seCls = "btn" ;'#13#10'    config.cls     = "btn-danger"'#13#10'}')
       Images = UniNativeImageList1
-      ImageIndex = 8
+      ImageIndex = 18
       OnClick = BtExcClick
     end
     object BtCan: TUniBitBtn
@@ -145,28 +145,15 @@ object FrameBase: TFrameBase
           941
           53)
         object EdPesquisar: TUniEdit
-          Left = 26
-          Top = 22
+          Left = 18
+          Top = 14
           Width = 509
           Hint = ''
           CharCase = ecUpperCase
           Text = '%'
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 1
-        end
-        object LblPesquisa: TUniLabel
-          Left = 26
-          Top = 4
-          Width = 121
-          Height = 13
-          Hint = ''
-          Caption = 'Informa'#231#227'o a Pesquisar'
-          ParentFont = False
-          Font.Color = clSilver
-          Font.Style = [fsBold]
-          ParentColor = False
-          Color = 15461355
-          TabOrder = 2
+          OnEnter = EdPesquisarEnter
         end
         object BtFiltrar: TUniBitBtn
           Left = 810
@@ -178,9 +165,9 @@ object FrameBase: TFrameBase
           Anchors = [akTop, akRight]
           ParentFont = False
           Font.Color = -1
-          TabOrder = 3
+          TabOrder = 2
           Images = UniNativeImageList1
-          ImageIndex = 6
+          ImageIndex = 14
           OnClick = BtFiltrarClick
         end
       end
@@ -251,7 +238,7 @@ object FrameBase: TFrameBase
     Left = 336
     Top = 184
     Images = {
-      12000000FFFFFF1F060B0000006E617669636F6E3B66613BFFFFFF1F060B0000
+      13000000FFFFFF1F060B0000006E617669636F6E3B66613BFFFFFF1F060B0000
       006465736B746F703B66613BFFFFFF1F060C000000656E76656C6F70653B6661
       3BFFFFFF1F0608000000757365723B66613BFFFFFF1F060E0000006C696E652D
       63686172743B66613BFFFFFF1F061000000077696E646F772D636C6F73653B66
@@ -262,7 +249,8 @@ object FrameBase: TFrameBase
       6C656E6461723B66613BFFFFFF1F0608000000666565643B66613BFFFFFF1F06
       0A0000007365617263683B66613BFFFFFF1F0609000000696D6167653B66613B
       FFFFFF1F0609000000696E626F783B66613BFFFFFF1F061900000066612D616E
-      676C652D646F75626C652D646F776E3B66615F3B}
+      676C652D646F75626C652D646F776E3B66615F3BFFFFFF1F0612000000666120
+      66612D74726173682D6F3B66615F3B}
   end
   object FDQryCad: TRESTDWClientSQL
     Active = False

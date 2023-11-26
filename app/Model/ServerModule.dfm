@@ -1,6 +1,6 @@
 object UniServerModule: TUniServerModule
   TempFolder = 'temp\'
-  Title = 'New Application'
+  Title = 'Controle Patrimonial Pat Web'
   AjaxTimeout = 60000
   DefaultImageFormat = cfPNG
   SuppressErrors = []

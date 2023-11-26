@@ -4,6 +4,8 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
+          ExplicitLeft = 2
+          ExplicitTop = -2
           ScrollHeight = 58
           ScrollWidth = 710
           object UniDBEdit1: TUniDBEdit
@@ -41,17 +43,12 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
     FieldDefs = <
       item
         Name = 'CODIGO'
-        Attributes = [faRequired]
         DataType = ftSmallint
       end
       item
         Name = 'MOTIVO'
         DataType = ftString
         Size = 100
-      end
-      item
-        Name = 'FDQryCadField3'
-        DataType = ftSmallint
       end>
     AutoIncAsInteger = True
     SequenceName = 'GEN_MOTIVOSTRANSFERENCIA_ID'
@@ -95,7 +92,7 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
         Name = 'FDQryFiltroField3'
         DataType = ftSmallint
       end>
-    SequenceName = ''
+    SequenceName = 'GEN_MOTIVOSTRANSFERENCIA_ID'
     SequenceField = 'CODIGO'
     BinaryRequest = True
     Params = <
@@ -112,6 +109,7 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
       'ORDER BY CODIGO')
     UpdateTableName = 'MOTIVOSTRANSFERENCIA'
     object FDQryFiltroCODIGO: TSmallintField
+      DisplayWidth = 15
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True

@@ -3,14 +3,10 @@ inherited frmCadUnidade: TfrmCadUnidade
   ExplicitHeight = 900
   inherited PageCadastro: TUniPageControl
     Height = 847
+    ActivePage = Tab2
     ExplicitHeight = 847
     inherited Tab1: TUniTabSheet
       ExplicitHeight = 819
-      inherited UniPnlPesquisar: TUniPanel
-        inherited BtFiltrar: TUniBitBtn
-          ImageIndex = 14
-        end
-      end
       inherited UniDBGrid1: TUniDBGrid
         Height = 766
         LoadMask.Message = 'Carregando dados...'
@@ -93,13 +89,15 @@ inherited frmCadUnidade: TfrmCadUnidade
             DataSource = dsCad
             CharCase = ecUpperCase
             TabOrder = 5
+            InputMask.Mask = '999.999.999-99'
+            InputMask.UnmaskText = True
             FieldLabel = 'CPF'
             FieldLabelAlign = laTop
           end
           object UniDBEdit7: TUniDBEdit
             Left = 16
             Top = 140
-            Width = 305
+            Width = 472
             Height = 36
             Hint = ''
             DataField = 'EMAIL'
@@ -110,7 +108,7 @@ inherited frmCadUnidade: TfrmCadUnidade
             FieldLabelAlign = laTop
           end
           object UniDBEdit8: TUniDBEdit
-            Left = 327
+            Left = 494
             Top = 140
             Width = 202
             Height = 36
@@ -119,6 +117,8 @@ inherited frmCadUnidade: TfrmCadUnidade
             DataSource = dsCad
             CharCase = ecUpperCase
             TabOrder = 7
+            InputMask.Mask = '(99) 9 9999-9999'
+            InputMask.UnmaskText = True
             FieldLabel = 'Telefone'
             FieldLabelAlign = laTop
           end
@@ -251,6 +251,7 @@ inherited frmCadUnidade: TfrmCadUnidade
             DataSource = dsCad
             CharCase = ecUpperCase
             TabOrder = 12
+            InputMask.Mask = '99.999-999'
             FieldLabel = 'CEP'
             FieldLabelAlign = laTop
           end
@@ -559,6 +560,7 @@ inherited frmCadUnidade: TfrmCadUnidade
     end
     object FDQryCadCPF: TStringField
       FieldName = 'CPF'
+      EditMask = '999.999.999-99;0;_'
       Size = 11
     end
     object FDQryCadRESPON_UNIDADE: TStringField
@@ -586,6 +588,7 @@ inherited frmCadUnidade: TfrmCadUnidade
     end
     object FDQryCadTELEFONES: TStringField
       FieldName = 'TELEFONES'
+      EditMask = '!\(99\) 9 0000-0000;0;_'
       Size = 40
     end
     object FDQryCadUF: TStringField
@@ -606,6 +609,7 @@ inherited frmCadUnidade: TfrmCadUnidade
     end
     object FDQryCadCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '99.999-000;0;_'
       Size = 8
     end
   end

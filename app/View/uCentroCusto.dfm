@@ -1,6 +1,11 @@
 inherited frmCentroCusto: TfrmCentroCusto
   inherited PageCadastro: TUniPageControl
     ActivePage = Tab2
+    inherited Tab1: TUniTabSheet
+      inherited UniDBGrid1: TUniDBGrid
+        ClientEvents.ExtEvents.Strings = ()
+      end
+    end
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
@@ -15,6 +20,7 @@ inherited frmCentroCusto: TfrmCentroCusto
             Enabled = False
             DataField = 'CODIGO'
             DataSource = dsCad
+            CharCase = ecUpperCase
             TabOrder = 0
             Color = 60652
             FieldLabel = 'C'#243'digo'
@@ -28,6 +34,7 @@ inherited frmCentroCusto: TfrmCentroCusto
             Hint = ''
             DataField = 'DESCENTRO'
             DataSource = dsCad
+            CharCase = ecUpperCase
             TabOrder = 1
             FieldLabel = 'Descri'#231#227'o'
             FieldLabelAlign = laTop

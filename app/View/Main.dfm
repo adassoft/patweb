@@ -17,6 +17,8 @@ object MainForm: TMainForm
     ActivePage = TabHome
     Align = alClient
     TabOrder = 0
+    ExplicitLeft = 377
+    ExplicitTop = 89
     ExplicitWidth = 545
     ExplicitHeight = 561
     object TabHome: TUniTabSheet
@@ -52,17 +54,6 @@ object MainForm: TMainForm
     ExplicitTop = 610
     ExplicitWidth = 834
   end
-  object UniTreeMenu1: TUniTreeMenu
-    Left = 0
-    Top = 49
-    Width = 289
-    Height = 562
-    Hint = ''
-    Items.FontData = {0100000000}
-    SourceMenu = UniMenuItems1
-    Color = 5723991
-    ExplicitHeight = 561
-  end
   object UniContainerPanel1: TUniContainerPanel
     Left = 0
     Top = 0
@@ -73,7 +64,7 @@ object MainForm: TMainForm
     Color = 6835774
     Align = alTop
     ParentAlignmentControl = False
-    TabOrder = 3
+    TabOrder = 2
     ExplicitWidth = 834
     object PanelTop: TUniPanel
       Left = 0
@@ -91,7 +82,7 @@ object MainForm: TMainForm
       BorderStyle = ubsNone
       Caption = 'Controle Patrimonial Web'
       Collapsed = True
-      Color = 9323693
+      Color = 2236962
       ExplicitWidth = 834
       object UniLabel1: TUniLabel
         AlignWithMargins = True
@@ -112,16 +103,29 @@ object MainForm: TMainForm
         AlignWithMargins = True
         Left = 3
         Top = 3
-        Width = 494
+        Width = 491
         Height = 28
         Hint = ''
         TextConversion = txtHTML
-        Caption = '<i class="fa fa-bars fa fa-2x" aria-hidden="true"></i>'
+        Caption = '<i class="fa fa-bars fa fa-1x" aria-hidden="true"></i>'
         Align = alLeft
         TabOrder = 2
         OnClick = UniLblButtoDrowerClick
       end
     end
+  end
+  object UniTreeMenu1: TUniTreeMenu
+    Left = 0
+    Top = 49
+    Width = 289
+    Height = 562
+    Hint = ''
+    Items.FontData = {0100000000}
+    SourceMenu = UniMenuItems1
+    Color = 2236962
+    ExplicitLeft = -50
+    ExplicitTop = 154
+    ExplicitHeight = 434
   end
   object UniMenuItems1: TUniMenuItems
     Images = UniNativeImageList1
@@ -133,6 +137,10 @@ object MainForm: TMainForm
       object Empresausuria1: TUniMenuItem
         Caption = 'Empresa usu'#225'ria'
       end
+      object Cidades1: TUniMenuItem
+        Caption = 'Cidades'
+        OnClick = Cidades1Click
+      end
     end
     object Cadastro1: TUniMenuItem
       Caption = 'Cadastro'
@@ -140,6 +148,7 @@ object MainForm: TMainForm
       object Pessoas1: TUniMenuItem
         Caption = 'Pessoas'
         ImageIndex = 18
+        OnClick = Pessoas1Click
       end
       object Unidadeadministrativa1: TUniMenuItem
         Caption = 'Unidade administrativa'
@@ -154,11 +163,16 @@ object MainForm: TMainForm
       object Categorias1: TUniMenuItem
         Caption = 'Categorias'
         ImageIndex = 11
+        OnClick = Categorias1Click
       end
       object Grupos1: TUniMenuItem
         Caption = 'Grupos'
         ImageIndex = 21
         OnClick = Grupos1Click
+      end
+      object Setores1: TUniMenuItem
+        Caption = 'Setores'
+        OnClick = Setores1Click
       end
       object Motivosdetransferncia1: TUniMenuItem
         Caption = 'Motivos de transfer'#234'ncia'
