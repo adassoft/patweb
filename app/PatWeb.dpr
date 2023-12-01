@@ -17,8 +17,15 @@ uses
   uCategoria in 'View\uCategoria.pas' {frmCategoria: TUniFrame},
   UPessoa in 'View\UPessoa.pas' {frmCadPessoa: TUniFrame},
   uCidade in 'View\uCidade.pas' {frmCidades: TUniFrame},
-  uUF in 'View\uUF.pas' {frmUF: TUniFrame},
-  uSetor in 'View\uSetor.pas' {frmSetor: TUniFrame};
+  uSetor in 'View\uSetor.pas' {frmSetor: TUniFrame},
+  uPatrimonio in 'View\uPatrimonio.pas' {frmCadPatrimonio: TUniFrame},
+  uFornecedor in 'View\uFornecedor.pas' {frmFornecedor: TUniFrame},
+  Utils in 'Controller\Utils.pas',
+  udmComum in 'Model\udmComum.pas' {dmComum: TDataModule},
+  uFrmLogin in 'View\uFrmLogin.pas' {fLogin: TUniLoginForm},
+  ClassLogin in 'Controller\ClassLogin.pas',
+  uUsuarios in 'View\uUsuarios.pas' {frmUsuarios: TUniFrame},
+  uEmpresaUsuaria in 'View\uEmpresaUsuaria.pas' {frmEmpresaUsuaria: TUniFrame};
 
 {$R *.res}
 

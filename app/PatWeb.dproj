@@ -181,13 +181,40 @@
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="View\uUF.pas">
-            <Form>frmUF</Form>
+        <DCCReference Include="View\uSetor.pas">
+            <Form>frmSetor</Form>
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="View\uSetor.pas">
-            <Form>frmSetor</Form>
+        <DCCReference Include="View\uPatrimonio.pas">
+            <Form>frmCadPatrimonio</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\uFornecedor.pas">
+            <Form>frmFornecedor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Controller\Utils.pas"/>
+        <DCCReference Include="Model\udmComum.pas">
+            <Form>dmComum</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\uFrmLogin.pas">
+            <Form>fLogin</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniLoginForm</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Controller\ClassLogin.pas"/>
+        <DCCReference Include="View\uUsuarios.pas">
+            <Form>frmUsuarios</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\uEmpresaUsuaria.pas">
+            <Form>frmEmpresaUsuaria</Form>
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>

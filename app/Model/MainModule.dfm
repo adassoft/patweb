@@ -1,5 +1,6 @@
 object UniMainModule: TUniMainModule
   Theme = 'gray'
+  NavigateKeys.Next.Key = 13
   MonitoredKeys.Keys = <>
   EnableSynchronousOperations = True
   ServerMessages.UnavailableErrMsg = 'Erro de comunica'#231#227'o'

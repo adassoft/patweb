@@ -8,7 +8,8 @@ uses
   uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB, uniGUIBaseClasses,
   uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
   uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
-  uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox, uRESTDWAbout;
+  uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox, uRESTDWAbout,
+  ACBrBase, ACBrEnterTab;
 
 type
   TfrmSetor = class(TFrameBase)
@@ -16,20 +17,6 @@ type
     FDQryFiltroSETOR: TStringField;
     FDQryFiltroUNIDADE: TStringField;
     FDQryFiltroRESPONSAVEL: TStringField;
-    UniDBEdit1: TUniDBEdit;
-    UniDBLookupComboBox1: TUniDBLookupComboBox;
-    FDQryUnidade: TRESTDWClientSQL;
-    dsUnidade: TDataSource;
-    FDQryUnidadeCODIGO: TSmallintField;
-    FDQryUnidadeUNIDADE: TStringField;
-    UniDBEdit2: TUniDBEdit;
-    FDQryPessoa: TRESTDWClientSQL;
-    UniDBLookupComboBox2: TUniDBLookupComboBox;
-    dsPessoa: TDataSource;
-    FDQryPessoaCODIGO: TIntegerField;
-    FDQryPessoaNOME: TStringField;
-    FDQryPessoaMASP: TStringField;
-    FDQryPessoaTELEFONE: TStringField;
     FDQryCadCODIGO: TIntegerField;
     FDQryCadNOME: TStringField;
     FDQryCadCODIRESPONSAVEL: TIntegerField;
@@ -39,6 +26,7 @@ type
     procedure BtIncClick(Sender: TObject);
   private
     { Private declarations }
+    procedure AbriTabelas;
   public
     { Public declarations }
   end;
@@ -50,33 +38,37 @@ implementation
 
 {$R *.dfm}
 
-uses MainModule;
+uses MainModule, udmComum, ClassAlert;
+
+procedure TfrmSetor.AbriTabelas;
+begin
+try
+  dmComum.FDQryUnidade.Close;
+  dmComum.FDQryUnidade.Open;
+  dmComum.FDQryPessoa.Close;
+  dmComum.FDQryPessoa.Open;
+Except
+   UniAlert.SwAlerta('ATENÇÃO' , 'Não foi possível abrir a tabela Unidade e/ou a tabela Pessoa.' , Aviso , 3000);
+   Abort ;
+  End ;
+end;
 
 procedure TfrmSetor.BtAltClick(Sender: TObject);
 begin
   inherited;
-  FDQryUnidade.Close;
-  FDQryUnidade.Open;
-  FDQryPessoa.Close;
-  FDQryPessoa.Open;
+  AbriTabelas;
 end;
 
 procedure TfrmSetor.BtIncClick(Sender: TObject);
 begin
   inherited;
-  FDQryUnidade.Close;
-  FDQryUnidade.Open;
-  FDQryPessoa.Close;
-  FDQryPessoa.Open;
+  AbriTabelas;
 end;
 
 procedure TfrmSetor.FDQryCadAfterScroll(DataSet: TDataSet);
 begin
   inherited;
-  FDQryUnidade.Close;
-  FDQryUnidade.Open;
-  FDQryPessoa.Close;
-  FDQryPessoa.Open;
+  AbriTabelas;
 end;
 
 end.

@@ -4,7 +4,7 @@ interface
 
 uses
   uniGUIMainModule, SysUtils, Classes, uRESTDWAbout, uRESTDWBasicDB,
-  uRESTDWIdBase;
+  uRESTDWIdBase, Data.DB, uRESTDWMemoryDataset, uRESTDWBasicTypes;
 
 type
   TUniMainModule = class(TUniGUIMainModule)
@@ -13,6 +13,9 @@ type
     { Private declarations }
   public
     { Public declarations }
+    vUsuarioLongado : Integer;
+    vEmpresaEscolhia : Integer;
+    vNomeEmpresa : String;
   end;
 
 function UniMainModule: TUniMainModule;
@@ -23,6 +26,7 @@ implementation
 
 uses
   UniGUIVars, ServerModule, uniGUIApplication;
+
 
 function UniMainModule: TUniMainModule;
 begin

@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrameBase, Data.DB,
   uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB, uniGUIBaseClasses,
   uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
-  uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit;
+  uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
+  uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox;
 
 type
   TfrmCategoria = class(TFrameBase)

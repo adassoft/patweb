@@ -9,7 +9,7 @@ uses
   uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
   uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
   uniDateTimePicker, uniDBDateTimePicker, uniDBLookupComboBox, uniMultiItem,
-  uniComboBox, uniDBComboBox;
+  uniComboBox, uniDBComboBox, udmComum;
 
 type
   TfrmCadPessoa = class(TFrameBase)
@@ -27,12 +27,7 @@ type
     UniDBEdit6: TUniDBEdit;
     UniDBEdit7: TUniDBEdit;
     UniDBComboBox1: TUniDBComboBox;
-    FDQryCidade: TRESTDWClientSQL;
-    FDQryCidadeCODIGO: TIntegerField;
-    FDQryCidadeDESCRICAO: TStringField;
-    FDQryCidadeUF: TStringField;
     UniDBLookupComboBox1: TUniDBLookupComboBox;
-    dsCidade: TDataSource;
     FDQryCadCODIGO: TIntegerField;
     FDQryCadMASP: TStringField;
     FDQryCadNOME: TStringField;
@@ -70,9 +65,14 @@ uses MainModule, ClassAuxiliar, uniSweetAlert, ClassAlert;
 
 procedure TfrmCadPessoa.AtualizaCidade;
 begin
-  FDQryCidade.Close;
-  FDQryCidade.ParamByName('UF').AsString := UniDBComboBox1.Text;
-  FDQryCidade.Open;
+try
+  dmComum.FDQryCidade.Close;
+  dmComum.FDQryCidade.ParamByName('UF').AsString := UniDBComboBox1.Text;
+  dmComum.FDQryCidade.Open;
+Except
+   UniAlert.SwAlerta('ATENÇÃO' , 'Falha ao carregar a lista de cidades.' , Aviso , 3000);
+   Abort ;
+end;
 end;
 
 procedure TfrmCadPessoa.BtAltClick(Sender: TObject);
@@ -84,9 +84,7 @@ end;
 procedure TfrmCadPessoa.FDQryCadAfterScroll(DataSet: TDataSet);
 begin
   inherited;
-  FDQryCidade.Close;
-  FDQryCidade.ParamByName('UF').AsString := UniDBComboBox1.Text;
-  FDQryCidade.Open;
+  AtualizaCidade;
 end;
 
 procedure TfrmCadPessoa.UniDBComboBox1Exit(Sender: TObject);
@@ -100,22 +98,20 @@ begin
   inherited;
 
   // Validar o CPF digitado
-  if Length(Trim(UniDBEdit4.Text)) > 0 then
-  begin
-    if Length(Trim(UniDBEdit4.Text)) = 11 then
+    if Length(Trim(UniDBEdit4.Text)) > 10 then
     begin
-    if not(ClassAuxiliar.Acoes.cpf(UniDBEdit4.Text)) then
+    if not(ClassAuxiliar.Acoes.ValidaCNPJ_CPF(UniDBEdit4.Text)) then
     begin
      ShowMessage('O CPF digitado não é válido');
      UniDBEdit4.SetFocus;
+     Abort;
     end;
     end else
     begin
-      ShowMessage('O CPF digitado não é válido');
+      ShowMessage('O CPF digitado não é válidoddddd');
       UniDBEdit4.SetFocus;
       Abort;
     end;
-  end;
 end;
 
 end.

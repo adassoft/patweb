@@ -131,11 +131,11 @@ inherited frmCidades: TfrmCidades
         DataType = ftLargeint
       end
       item
+        Name = 'FDQryCadField6'
         DataType = ftString
         Size = 8
       end>
     SequenceName = 'GEN_CIDADES_ID'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString
@@ -196,6 +196,7 @@ inherited frmCidades: TfrmCidades
         DataType = ftLargeint
       end
       item
+        Name = 'FDQryFiltroField6'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_CIDADES_ID'

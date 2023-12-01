@@ -29,87 +29,81 @@ object FrameBase: TFrameBase
       TabOrder = 1
     end
     object BtInc: TUniBitBtn
-      Left = 6
-      Top = 4
-      Width = 103
-      Height = 35
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 80
+      Height = 36
       Hint = ''
       Caption = 'Novo'
+      Align = alLeft
       ParentFont = False
       Font.Color = -1
       TabOrder = 2
       Images = UniNativeImageList1
-      ImageIndex = 6
+      ImageIndex = 19
       OnClick = BtIncClick
     end
     object BtAlt: TUniBitBtn
-      Left = 114
-      Top = 4
-      Width = 103
-      Height = 35
+      AlignWithMargins = True
+      Left = 89
+      Top = 3
+      Width = 80
+      Height = 36
       Hint = ''
       Caption = 'Editar'
+      Align = alLeft
       ParentFont = False
       Font.Color = -1
       TabOrder = 3
-      ClientEvents.UniEvents.Strings = (
-        
-          'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.ba' +
-          'seCls = "btn" ;'#13#10'    config.cls     = "btn-dark"   '#13#10'}')
       Images = UniNativeImageList1
       ImageIndex = 7
       OnClick = BtAltClick
     end
     object BtExc: TUniBitBtn
-      Left = 222
-      Top = 4
-      Width = 103
-      Height = 35
+      AlignWithMargins = True
+      Left = 175
+      Top = 3
+      Width = 80
+      Height = 36
       Hint = ''
       Caption = 'Deletar'
+      Align = alLeft
       ParentFont = False
       Font.Color = -1
       TabOrder = 4
-      ClientEvents.UniEvents.Strings = (
-        
-          'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.ba' +
-          'seCls = "btn" ;'#13#10'    config.cls     = "btn-danger"'#13#10'}')
       Images = UniNativeImageList1
       ImageIndex = 18
       OnClick = BtExcClick
     end
     object BtCan: TUniBitBtn
-      Left = 330
-      Top = 4
-      Width = 103
-      Height = 35
+      AlignWithMargins = True
+      Left = 261
+      Top = 3
+      Width = 80
+      Height = 36
       Hint = ''
       Caption = 'Desfazer'
+      Align = alLeft
       ParentFont = False
       Font.Color = -1
       TabOrder = 5
-      ClientEvents.UniEvents.Strings = (
-        
-          'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.ba' +
-          'seCls = "btn" ;'#13#10'    config.cls     = "btn-warning"'#13#10'}')
       Images = UniNativeImageList1
       ImageIndex = 13
       OnClick = BtCanClick
     end
     object BtGrv: TUniBitBtn
-      Left = 438
-      Top = 4
-      Width = 103
-      Height = 35
+      AlignWithMargins = True
+      Left = 347
+      Top = 3
+      Width = 80
+      Height = 36
       Hint = ''
       Caption = 'Salvar'
+      Align = alLeft
       ParentFont = False
       Font.Color = -1
       TabOrder = 6
-      ClientEvents.UniEvents.Strings = (
-        
-          'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.ba' +
-          'seCls = "btn" ;'#13#10'    config.cls     = "btn-success"'#13#10'}')
       Images = UniNativeImageList1
       ImageIndex = 6
       OnClick = BtGrvClick
@@ -141,28 +135,36 @@ object FrameBase: TFrameBase
         BorderStyle = ubsSolid
         Caption = ''
         Color = 6835774
-        DesignSize = (
-          941
-          53)
         object EdPesquisar: TUniEdit
-          Left = 18
-          Top = 14
-          Width = 509
+          AlignWithMargins = True
+          Left = 10
+          Top = 10
+          Width = 819
+          Height = 33
           Hint = ''
+          Margins.Left = 10
+          Margins.Top = 10
+          Margins.Right = 10
+          Margins.Bottom = 10
           CharCase = ecUpperCase
           Text = '%'
-          Anchors = [akLeft, akTop, akRight]
+          Align = alClient
           TabOrder = 1
           OnEnter = EdPesquisarEnter
         end
         object BtFiltrar: TUniBitBtn
-          Left = 810
-          Top = 9
-          Width = 119
-          Height = 35
+          AlignWithMargins = True
+          Left = 845
+          Top = 6
+          Width = 90
+          Height = 41
           Hint = ''
+          Margins.Left = 6
+          Margins.Top = 6
+          Margins.Right = 6
+          Margins.Bottom = 6
           Caption = 'Filtrar'
-          Anchors = [akTop, akRight]
+          Align = alRight
           ParentFont = False
           Font.Color = -1
           TabOrder = 2
@@ -177,24 +179,17 @@ object FrameBase: TFrameBase
         Width = 941
         Height = 376
         Hint = ''
-        ClientEvents.ExtEvents.Strings = (
-          
-            'added=function added(sender, container, pos, eOpts)'#13#10'{'#13#10'  sender' +
-            '.addCls('#39'mGridCliente'#39','#39'x-grid-cell'#39');'#13#10'}')
-        ClientEvents.UniEvents.Strings = (
-          
-            'beforeInit=function beforeInit(sender, config)'#13#10'{'#13#10'    config.cl' +
-            's="mGridCliente";'#13#10'    config.itemHeight = 20;'#13#10'    config.heade' +
-            'rContainer = {height: 20};'#13#10'}')
         DataSource = dsFiltro
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgConfirmDelete, dgTitleClick, dgFilterClearButton, dgAutoRefreshRow]
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgRowLines, dgRowSelect, dgConfirmDelete, dgFilterClearButton, dgTabs, dgCancelOnExit]
+        ReadOnly = True
+        LoadMask.ShowMessage = False
         LoadMask.Message = 'Loading data...'
-        BorderStyle = ubsNone
+        LoadMask.Opacity = 0.400000005960464500
+        TrackOver = False
         Align = alClient
         TabOrder = 1
-        ParentColor = False
-        Color = clWindow
-        OnDblClick = UniDBGrid1DblClick
+        TabStop = False
+        OnBodyDblClick = UniDBGrid1BodyDblClick
       end
     end
     object Tab2: TUniTabSheet
@@ -219,6 +214,17 @@ object FrameBase: TFrameBase
           Align = alClient
           Color = clBtnHighlight
           TabOrder = 1
+          ScrollHeight = 35
+          object UniSimplePanel19: TUniSimplePanel
+            Left = 0
+            Top = 0
+            Width = 939
+            Height = 35
+            Hint = ''
+            ParentColor = False
+            Align = alTop
+            TabOrder = 0
+          end
         end
       end
     end
@@ -234,11 +240,109 @@ object FrameBase: TFrameBase
     Align = alBottom
     TabOrder = 2
   end
+  object UniHiddenPanel1: TUniHiddenPanel
+    Left = 22
+    Top = 152
+    Width = 209
+    Height = 321
+    Hint = ''
+    Visible = True
+    object UniEdit1: TUniEdit
+      Left = 16
+      Top = 24
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit1'
+      TabOrder = 0
+      EmptyText = 'Company...'
+      ClearButton = True
+    end
+    object UniEdit2: TUniEdit
+      Left = 16
+      Top = 52
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit2'
+      TabOrder = 1
+      EmptyText = 'Contact...'
+      ClearButton = True
+    end
+    object UniEdit3: TUniEdit
+      Left = 16
+      Top = 80
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit3'
+      TabOrder = 2
+      EmptyText = 'Title...'
+      ClearButton = True
+    end
+    object UniEdit4: TUniEdit
+      Left = 16
+      Top = 108
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit4'
+      TabOrder = 3
+      EmptyText = 'Address...'
+      ClearButton = True
+    end
+    object UniEdit5: TUniEdit
+      Left = 16
+      Top = 136
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit5'
+      TabOrder = 4
+      EmptyText = 'City...'
+      ClearButton = True
+    end
+    object UniEdit6: TUniEdit
+      Left = 16
+      Top = 164
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit6'
+      TabOrder = 5
+      EmptyText = 'Postal Code...'
+      ClearButton = True
+    end
+    object UniEdit7: TUniEdit
+      Left = 16
+      Top = 220
+      Width = 121
+      Hint = ''
+      CharEOL = #13
+      Text = 'UniEdit7'
+      TabOrder = 7
+      EmptyText = 'Phone...'
+      ClearButton = True
+    end
+    object UniDBLookupComboBoxP: TUniDBLookupComboBox
+      Left = 16
+      Top = 192
+      Width = 145
+      Height = 23
+      Hint = ''
+      ListField = 'Country'
+      KeyField = 'Country'
+      ListFieldIndex = 0
+      EmptyText = 'Country...'
+      TabOrder = 6
+      Color = clWindow
+    end
+  end
   object UniNativeImageList1: TUniNativeImageList
     Left = 336
     Top = 184
     Images = {
-      13000000FFFFFF1F060B0000006E617669636F6E3B66613BFFFFFF1F060B0000
+      14000000FFFFFF1F060B0000006E617669636F6E3B66613BFFFFFF1F060B0000
       006465736B746F703B66613BFFFFFF1F060C000000656E76656C6F70653B6661
       3BFFFFFF1F0608000000757365723B66613BFFFFFF1F060E0000006C696E652D
       63686172743B66613BFFFFFF1F061000000077696E646F772D636C6F73653B66
@@ -250,7 +354,8 @@ object FrameBase: TFrameBase
       0A0000007365617263683B66613BFFFFFF1F0609000000696D6167653B66613B
       FFFFFF1F0609000000696E626F783B66613BFFFFFF1F061900000066612D616E
       676C652D646F75626C652D646F776E3B66615F3BFFFFFF1F0612000000666120
-      66612D74726173682D6F3B66615F3B}
+      66612D74726173682D6F3B66615F3BFFFFFF1F061600000066612066612D706C
+      75732D7371756172653B66615F3B}
   end
   object FDQryCad: TRESTDWClientSQL
     Active = False
@@ -262,7 +367,7 @@ object FrameBase: TFrameBase
     AutoSortOnOpen = True
     AutoRefreshOnFilterChanged = True
     MasterCascadeDelete = True
-    BinaryRequest = False
+    BinaryRequest = True
     Datapacks = -1
     DataCache = False
     MassiveType = mtMassiveCache

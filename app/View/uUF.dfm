@@ -1,6 +1,5 @@
 inherited frmUF: TfrmUF
   inherited FDQryCad: TRESTDWClientSQL
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString

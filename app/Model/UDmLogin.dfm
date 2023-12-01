@@ -4,7 +4,34 @@ object DMLogin: TDMLogin
   object QryLogin: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'ID'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'SENHA'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'EMAIL'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'DATA_CADASTRO'
+        DataType = ftDate
+      end
+      item
+        DataType = ftInteger
+      end>
     SortOrder = soAsc
     SortCaseSens = scYes
     SortFields = ''
@@ -26,24 +53,21 @@ object DMLogin: TDMLogin
         Name = 'SENHA'
         ParamType = ptInput
       end>
+    DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
-      'SELECT *  FROM USUARIOS WHERE NOME = :USUARIO AND SENHA=:SENHA ')
-    UpdateTableName = 'USUARIOS'
+      'SELECT *  FROM USUARIOS WHERE NOME = :USUARIO AND SENHA=:SENHA')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ReflectChanges = True
-    Left = 248
+    ReflectChanges = False
+    Left = 80
     Top = 40
     object QryLoginID: TIntegerField
       FieldName = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-    end
-    object QryLoginEMPRESA_FK: TIntegerField
-      FieldName = 'EMPRESA_FK'
     end
     object QryLoginNOME: TStringField
       FieldName = 'NOME'
@@ -51,21 +75,47 @@ object DMLogin: TDMLogin
     end
     object QryLoginSENHA: TStringField
       FieldName = 'SENHA'
-      Size = 15
+      Size = 40
     end
     object QryLoginEMAIL: TStringField
       FieldName = 'EMAIL'
-      Required = True
-      Size = 200
+      Size = 40
     end
-    object QryLoginDATA_CADASTRO: TSQLTimeStampField
+    object QryLoginDATA_CADASTRO: TDateField
       FieldName = 'DATA_CADASTRO'
     end
   end
   object QryCadUsuarioNovo: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'ID'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'SENHA'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'EMAIL'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'DATA_CADASTRO'
+        DataType = ftDate
+      end
+      item
+        DataType = ftInteger
+      end>
     SortOrder = soAsc
     SortCaseSens = scYes
     SortFields = ''
@@ -79,6 +129,7 @@ object DMLogin: TDMLogin
     DataCache = False
     MassiveType = mtMassiveCache
     Params = <>
+    DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       'SELECT * FROM USUARIOS WHERE ID = -1')
     UpdateTableName = 'USUARIOS'
@@ -87,15 +138,13 @@ object DMLogin: TDMLogin
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ReflectChanges = True
-    Left = 88
-    Top = 80
+    ReflectChanges = False
+    Left = 80
+    Top = 128
     object QryCadUsuarioNovoID: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID'
-      Required = True
-    end
-    object QryCadUsuarioNovoEMPRESA_FK: TIntegerField
-      FieldName = 'EMPRESA_FK'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object QryCadUsuarioNovoNOME: TStringField
       FieldName = 'NOME'
@@ -103,21 +152,38 @@ object DMLogin: TDMLogin
     end
     object QryCadUsuarioNovoSENHA: TStringField
       FieldName = 'SENHA'
-      Size = 15
+      Size = 40
     end
     object QryCadUsuarioNovoEMAIL: TStringField
       FieldName = 'EMAIL'
-      Required = True
-      Size = 200
+      Size = 40
     end
-    object QryCadUsuarioNovoDATA_CADASTRO: TSQLTimeStampField
+    object QryCadUsuarioNovoDATA_CADASTRO: TDateField
       FieldName = 'DATA_CADASTRO'
     end
   end
   object ValidaUsuarioEmail: TRESTDWClientSQL
     Active = False
     Filtered = False
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'ID'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOME'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'SENHA'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        DataType = ftInteger
+      end>
     SortOrder = soAsc
     SortCaseSens = scYes
     SortFields = ''
@@ -134,19 +200,20 @@ object DMLogin: TDMLogin
         Name = 'EMAIL'
         ParamType = ptInput
       end>
+    DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
-      'SELECT ID,NOME,SENHA FROM USUARIOS WHERE EMAIL=:EMAIL ')
-    UpdateTableName = 'USUARIOS'
+      'SELECT ID,NOME,SENHA FROM USUARIOS WHERE EMAIL=:EMAIL')
     CacheUpdateRecords = True
     AutoCommitData = False
     AutoRefreshAfterCommit = False
     ThreadRequest = False
     RaiseErrors = True
-    ReflectChanges = True
-    Left = 88
-    Top = 160
+    ReflectChanges = False
+    Left = 80
+    Top = 208
     object ValidaUsuarioEmailID: TIntegerField
       FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object ValidaUsuarioEmailNOME: TStringField
@@ -155,7 +222,7 @@ object DMLogin: TDMLogin
     end
     object ValidaUsuarioEmailSENHA: TStringField
       FieldName = 'SENHA'
-      Size = 15
+      Size = 40
     end
   end
 end

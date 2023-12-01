@@ -1,6 +1,5 @@
 inherited frmCategoria: TfrmCategoria
   inherited PageCadastro: TUniPageControl
-    ActivePage = Tab2
     inherited Tab1: TUniTabSheet
       inherited UniDBGrid1: TUniDBGrid
         Columns = <
@@ -36,6 +35,9 @@ inherited frmCategoria: TfrmCategoria
         inherited UniScrollBox1: TUniScrollBox
           ScrollHeight = 124
           ScrollWidth = 682
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 7
+          end
           object UniDBEdit1: TUniDBEdit
             Left = 16
             Top = 22
@@ -197,7 +199,6 @@ inherited frmCategoria: TfrmCategoria
       end>
     SequenceName = 'GEN_CATEGORIAS_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString

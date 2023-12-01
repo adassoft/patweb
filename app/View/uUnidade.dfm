@@ -7,40 +7,13 @@ inherited frmCadUnidade: TfrmCadUnidade
     ExplicitHeight = 847
     inherited Tab1: TUniTabSheet
       ExplicitHeight = 819
+      inherited UniPnlPesquisar: TUniPanel
+        inherited EdPesquisar: TUniEdit
+          EmptyText = 'Pesquisa....'
+        end
+      end
       inherited UniDBGrid1: TUniDBGrid
         Height = 766
-        LoadMask.Message = 'Carregando dados...'
-        Columns = <
-          item
-            FieldName = 'CODIGO'
-            Title.Caption = 'C'#211'DIGO'
-            Width = 94
-          end
-          item
-            FieldName = 'ORGAO'
-            Title.Caption = #211'RG'#195'O'
-            Width = 244
-          end
-          item
-            FieldName = 'UNIDADE'
-            Title.Caption = 'UNIDADE'
-            Width = 244
-          end
-          item
-            FieldName = 'RESPON_UNIDADE'
-            Title.Caption = 'RESPONS'#193'VEL'
-            Width = 244
-          end
-          item
-            FieldName = 'TELEFONES'
-            Title.Caption = 'TELEFONE'
-            Width = 244
-          end
-          item
-            FieldName = 'EMAIL'
-            Title.Caption = 'EMAIL'
-            Width = 484
-          end>
       end
     end
     inherited Tab2: TUniTabSheet
@@ -524,7 +497,6 @@ inherited frmCadUnidade: TfrmCadUnidade
       end>
     SequenceName = 'GEN_UNIDADE_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString

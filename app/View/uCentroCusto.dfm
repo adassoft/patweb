@@ -1,19 +1,17 @@
 inherited frmCentroCusto: TfrmCentroCusto
   inherited PageCadastro: TUniPageControl
     ActivePage = Tab2
-    inherited Tab1: TUniTabSheet
-      inherited UniDBGrid1: TUniDBGrid
-        ClientEvents.ExtEvents.Strings = ()
-      end
-    end
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
-          ScrollHeight = 58
+          ScrollHeight = 91
           ScrollWidth = 710
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 2
+          end
           object UniDBEdit1: TUniDBEdit
             Left = 16
-            Top = 22
+            Top = 55
             Width = 88
             Height = 36
             Hint = ''
@@ -28,7 +26,7 @@ inherited frmCentroCusto: TfrmCentroCusto
           end
           object UniDBEdit2: TUniDBEdit
             Left = 110
-            Top = 22
+            Top = 55
             Width = 600
             Height = 36
             Hint = ''
@@ -43,6 +41,12 @@ inherited frmCentroCusto: TfrmCentroCusto
       end
     end
   end
+  inherited UniHiddenPanel1: TUniHiddenPanel
+    Left = 721
+    Top = 125
+    ExplicitLeft = 721
+    ExplicitTop = 125
+  end
   inherited FDQryCad: TRESTDWClientSQL
     FieldDefs = <
       item
@@ -56,11 +60,11 @@ inherited frmCentroCusto: TfrmCentroCusto
         Size = 100
       end
       item
+        Name = 'FDQryCadField3'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_CENTROCUSTRO_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString
@@ -94,6 +98,7 @@ inherited frmCentroCusto: TfrmCentroCusto
         Size = 100
       end
       item
+        Name = 'FDQryFiltroField3'
         DataType = ftInteger
       end>
     BinaryRequest = True

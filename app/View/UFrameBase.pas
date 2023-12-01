@@ -11,7 +11,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, uniDBEdit,
-  uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB;
+  uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB, ACBrBase,
+  ACBrEnterTab, uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox;
 
 type
 
@@ -24,7 +25,6 @@ type
     Tab1: TUniTabSheet;
     UniPnlPesquisar: TUniPanel;
     EdPesquisar: TUniEdit;
-    UniDBGrid1: TUniDBGrid;
     Tab2: TUniTabSheet;
     UniContainerPanel2: TUniContainerPanel;
     BtInc: TUniBitBtn;
@@ -40,6 +40,17 @@ type
     FDQryFiltro: TRESTDWClientSQL;
     UniPanel1: TUniPanel;
     UniScrollBox1: TUniScrollBox;
+    UniDBGrid1: TUniDBGrid;
+    UniHiddenPanel1: TUniHiddenPanel;
+    UniEdit1: TUniEdit;
+    UniEdit2: TUniEdit;
+    UniEdit3: TUniEdit;
+    UniEdit4: TUniEdit;
+    UniEdit5: TUniEdit;
+    UniEdit6: TUniEdit;
+    UniEdit7: TUniEdit;
+    UniDBLookupComboBoxP: TUniDBLookupComboBox;
+    UniSimplePanel19: TUniSimplePanel;
     function CamposValidados :Boolean;
     procedure PersonalizarButtom;
     procedure UniFrameCreate(Sender: TObject);
@@ -55,6 +66,7 @@ type
     procedure UniDBGrid1DblClick(Sender: TObject);
     procedure BtFiltrarClick(Sender: TObject);
     procedure EdPesquisarEnter(Sender: TObject);
+    procedure UniDBGrid1BodyDblClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -432,6 +444,11 @@ procedure TFrameBase.BtFiltrarClick(Sender: TObject);
 
 end;
 
+procedure TFrameBase.UniDBGrid1BodyDblClick(Sender: TObject);
+begin
+BtAlt.Click;
+end;
+
 procedure TFrameBase.UniDBGrid1DblClick(Sender: TObject);
 begin
   BtAlt.Click ;
@@ -442,6 +459,7 @@ procedure TFrameBase.UniFrameCreate(Sender: TObject);
 begin
   PersonalizarButtom ;
   PageCadastro.Pages[1].TabVisible := False ;
+  BtFiltrar.Click;
 end;
   // $00684E3E  background quando usar o ari
 end.

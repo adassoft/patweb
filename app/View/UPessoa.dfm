@@ -29,12 +29,15 @@ inherited frmCadPessoa: TfrmCadPessoa
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
-          ExplicitTop = -2
-          ScrollHeight = 250
+          ExplicitHeight = 427
+          ScrollHeight = 283
           ScrollWidth = 710
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 13
+          end
           object UniDBEdit1: TUniDBEdit
             Left = 16
-            Top = 22
+            Top = 55
             Width = 88
             Height = 36
             Hint = ''
@@ -48,7 +51,7 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBEdit2: TUniDBEdit
             Left = 110
-            Top = 22
+            Top = 55
             Width = 416
             Height = 36
             Hint = ''
@@ -61,27 +64,27 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBEdit3: TUniDBEdit
             Left = 16
-            Top = 86
+            Top = 119
             Width = 160
             Height = 36
             Hint = ''
             DataField = 'MASP'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 2
+            TabOrder = 3
             FieldLabel = 'MASP'
             FieldLabelAlign = laTop
           end
           object UniDBEdit4: TUniDBEdit
             Left = 193
-            Top = 86
+            Top = 119
             Width = 160
             Height = 36
             Hint = ''
             DataField = 'CPF'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 3
+            TabOrder = 4
             InputMask.Mask = '999.999.999-99'
             InputMask.UnmaskText = True
             FieldLabel = 'CPF'
@@ -90,7 +93,7 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBDateTimePicker1: TUniDBDateTimePicker
             Left = 366
-            Top = 86
+            Top = 119
             Width = 160
             Height = 36
             Hint = ''
@@ -99,13 +102,13 @@ inherited frmCadPessoa: TfrmCadPessoa
             DateTime = 45256.000000000000000000
             DateFormat = 'dd/MM/yyyy'
             TimeFormat = 'HH:mm:ss'
-            TabOrder = 4
+            TabOrder = 5
             FieldLabel = 'Data Nomea'#231#227'o'
             FieldLabelAlign = laTop
           end
           object UniDBDateTimePicker2: TUniDBDateTimePicker
             Left = 550
-            Top = 86
+            Top = 119
             Width = 160
             Height = 36
             Hint = ''
@@ -114,52 +117,52 @@ inherited frmCadPessoa: TfrmCadPessoa
             DateTime = 45256.000000000000000000
             DateFormat = 'dd/MM/yyyy'
             TimeFormat = 'HH:mm:ss'
-            TabOrder = 5
+            TabOrder = 6
             FieldLabel = 'Data Publica'#231#227'o'
             FieldLabelAlign = laTop
           end
           object UniDBEdit5: TUniDBEdit
             Left = 16
-            Top = 150
+            Top = 183
             Width = 352
             Height = 36
             Hint = ''
             DataField = 'ENDERECO'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 6
+            TabOrder = 7
             FieldLabel = 'Endere'#231'o'
             FieldLabelAlign = laTop
           end
           object UniDBEdit6: TUniDBEdit
             Left = 382
-            Top = 150
+            Top = 183
             Width = 107
             Height = 36
             Hint = ''
             DataField = 'NUMEROEND'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 7
+            TabOrder = 8
             FieldLabel = 'N'#250'mero'
             FieldLabelAlign = laTop
           end
           object UniDBEdit7: TUniDBEdit
             Left = 504
-            Top = 150
+            Top = 183
             Width = 206
             Height = 36
             Hint = ''
             DataField = 'BAIRRO'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 8
+            TabOrder = 9
             FieldLabel = 'Bairro'
             FieldLabelAlign = laTop
           end
           object UniDBComboBox1: TUniDBComboBox
             Left = 16
-            Top = 214
+            Top = 247
             Width = 145
             Height = 36
             Hint = ''
@@ -192,7 +195,7 @@ inherited frmCadPessoa: TfrmCadPessoa
               'SP'
               'SE'
               'TO')
-            TabOrder = 9
+            TabOrder = 10
             FieldLabel = 'UF'
             FieldLabelAlign = laTop
             IconItems = <>
@@ -200,17 +203,17 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBLookupComboBox1: TUniDBLookupComboBox
             Left = 175
-            Top = 214
+            Top = 247
             Width = 314
             Height = 36
             Hint = ''
             ListField = 'DESCRICAO'
-            ListSource = dsCidade
+            ListSource = dmComum.dsCidade
             KeyField = 'CODIGO'
             ListFieldIndex = 0
             DataField = 'CODICIDADE'
             DataSource = dsCad
-            TabOrder = 10
+            TabOrder = 11
             Color = clWindow
             FieldLabel = 'Cidade'
             FieldLabelAlign = laTop
@@ -218,14 +221,14 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBEdit8: TUniDBEdit
             Left = 504
-            Top = 214
+            Top = 247
             Width = 206
             Height = 36
             Hint = ''
             DataField = 'CEP'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 11
+            TabOrder = 12
             InputMask.Mask = '99.999-999'
             InputMask.UnmaskText = True
             FieldLabel = 'CEP'
@@ -233,14 +236,14 @@ inherited frmCadPessoa: TfrmCadPessoa
           end
           object UniDBEdit9: TUniDBEdit
             Left = 550
-            Top = 22
+            Top = 55
             Width = 160
             Height = 36
             Hint = ''
             DataField = 'TELEFONE'
             DataSource = dsCad
             CharCase = ecUpperCase
-            TabOrder = 12
+            TabOrder = 2
             InputMask.Mask = '(99) 9 9999-9999'
             InputMask.UnmaskText = True
             FieldLabel = 'Telefone'
@@ -250,12 +253,17 @@ inherited frmCadPessoa: TfrmCadPessoa
       end
     end
   end
+  inherited UniHiddenPanel1: TUniHiddenPanel
+    Left = 737
+    Top = 89
+    ExplicitLeft = 737
+    ExplicitTop = 89
+  end
   inherited UniNativeImageList1: TUniNativeImageList
     Left = 792
     Top = 128
   end
   inherited FDQryCad: TRESTDWClientSQL
-    Active = True
     FieldDefs = <
       item
         Name = 'CODIGO'
@@ -321,7 +329,6 @@ inherited frmCadPessoa: TfrmCadPessoa
     AfterScroll = FDQryCadAfterScroll
     SequenceName = 'GEN_PESSOA_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftInteger
@@ -410,6 +417,7 @@ inherited frmCadPessoa: TfrmCadPessoa
         Size = 12
       end
       item
+        Name = 'FDQryFiltroField5'
         DataType = ftInteger
       end>
     SequenceField = 'CODIGO'
@@ -447,75 +455,5 @@ inherited frmCadPessoa: TfrmCadPessoa
       EditMask = '!\(99\) 0 0000-0000;0;_'
       Size = 12
     end
-  end
-  object FDQryCidade: TRESTDWClientSQL
-    Active = False
-    Filtered = False
-    FieldDefs = <
-      item
-        Name = 'CODIGO'
-        Attributes = [faRequired]
-        DataType = ftInteger
-      end
-      item
-        Name = 'DESCRICAO'
-        DataType = ftString
-        Size = 60
-      end
-      item
-        Name = 'UF'
-        DataType = ftString
-        Size = 2
-      end
-      item
-        DataType = ftInteger
-      end>
-    SortOrder = soAsc
-    SortCaseSens = scYes
-    SortFields = ''
-    AutoSortOnOpen = True
-    AutoRefreshOnFilterChanged = True
-    MasterCascadeDelete = True
-    BinaryRequest = True
-    Datapacks = -1
-    DataCache = False
-    MassiveType = mtMassiveCache
-    Params = <
-      item
-        DataType = ftString
-        Name = 'UF'
-        ParamType = ptInput
-        Size = 2
-      end>
-    DataBase = UniMainModule.RESTDWIdDatabase
-    SQL.Strings = (
-      'Select CODIGO, DESCRICAO, UF From CIDADES WHERE UF=:UF'
-      'ORDER BY DESCRICAO')
-    CacheUpdateRecords = True
-    AutoCommitData = False
-    AutoRefreshAfterCommit = False
-    ThreadRequest = False
-    RaiseErrors = True
-    ReflectChanges = False
-    Left = 756
-    Top = 226
-    object FDQryCidadeCODIGO: TIntegerField
-      FieldName = 'CODIGO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object FDQryCidadeDESCRICAO: TStringField
-      FieldName = 'DESCRICAO'
-      Size = 60
-    end
-    object FDQryCidadeUF: TStringField
-      FieldName = 'UF'
-      Size = 2
-    end
-  end
-  object dsCidade: TDataSource
-    DataSet = FDQryCidade
-    Left = 844
-    Top = 290
   end
 end
