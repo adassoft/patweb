@@ -6,6 +6,9 @@ inherited frmGrupos: TfrmGrupos
         inherited UniScrollBox1: TUniScrollBox
           ScrollHeight = 58
           ScrollWidth = 710
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 2
+          end
           object UniDBEdit2: TUniDBEdit
             Left = 110
             Top = 22
@@ -50,11 +53,11 @@ inherited frmGrupos: TfrmGrupos
         Size = 100
       end
       item
+        Name = 'FDQryCadField3'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_GRUPO_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftString
@@ -88,6 +91,7 @@ inherited frmGrupos: TfrmGrupos
         Size = 100
       end
       item
+        Name = 'FDQryFiltroField3'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_GRUPO_ID'
@@ -96,14 +100,19 @@ inherited frmGrupos: TfrmGrupos
     Params = <
       item
         DataType = ftString
-        Name = 'DESGRUPO'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, DESGRUPO From GRUPO WHERE DESGRUPO LIKE :DESGRUPO' +
-        ' || '#39'%'#39
+        'Select CODIGO, DESGRUPO From GRUPO WHERE CODIEMPRESA=:CODIEMPRES' +
+        'A AND DESGRUPO LIKE :P01   || '#39'%'#39
       'ORDER BY CODIGO')
     object FDQryFiltroCODIGO: TIntegerField
       AutoGenerateValue = arAutoInc

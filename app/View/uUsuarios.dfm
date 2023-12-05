@@ -3,7 +3,6 @@ inherited frmUsuarios: TfrmUsuarios
   ExplicitHeight = 710
   inherited PageCadastro: TUniPageControl
     Height = 657
-    ActivePage = Tab2
     ExplicitHeight = 657
     inherited Tab1: TUniTabSheet
       ExplicitHeight = 629
@@ -264,20 +263,20 @@ inherited frmUsuarios: TfrmUsuarios
                       end
                     end
                   end
-                  object UniSimplePanel6: TUniSimplePanel
+                  object UniSimplePanel15: TUniSimplePanel
                     Left = 0
-                    Top = 260
+                    Top = 325
                     Width = 895
                     Height = 65
                     Hint = ''
                     CreateOrder = 14
                     ParentColor = False
                     Align = alTop
-                    TabOrder = 6
+                    TabOrder = 4
                     Layout = 'column'
                     LayoutAttribs.Columns = 3
                     LayoutConfig.Height = '100%'
-                    object UniSimplePanel9: TUniSimplePanel
+                    object UniSimplePanel10: TUniSimplePanel
                       AlignWithMargins = True
                       Left = 3
                       Top = 3
@@ -289,21 +288,20 @@ inherited frmUsuarios: TfrmUsuarios
                       Align = alLeft
                       TabOrder = 1
                       Layout = 'column'
-                      object dbEditSenha: TUniDBEdit
+                      object edtConfirmarsenha: TUniEdit
                         Left = 0
                         Top = 0
                         Width = 320
                         Height = 59
                         Hint = ''
-                        DataField = 'SENHA'
-                        DataSource = dsCad
                         PasswordChar = '*'
-                        CharCase = ecUpperCase
-                        Align = alClient
+                        CharEOL = '*'
+                        Text = ''
                         ParentFont = False
                         Font.Height = -15
+                        Align = alClient
                         TabOrder = 1
-                        FieldLabel = 'Senha'
+                        FieldLabel = 'Confirmar a senha'
                         FieldLabelAlign = laTop
                       end
                     end
@@ -351,20 +349,20 @@ inherited frmUsuarios: TfrmUsuarios
                       end
                     end
                   end
-                  object UniSimplePanel15: TUniSimplePanel
+                  object UniSimplePanel6: TUniSimplePanel
                     Left = 0
-                    Top = 325
+                    Top = 260
                     Width = 895
                     Height = 65
                     Hint = ''
                     CreateOrder = 14
                     ParentColor = False
                     Align = alTop
-                    TabOrder = 4
+                    TabOrder = 6
                     Layout = 'column'
                     LayoutAttribs.Columns = 3
                     LayoutConfig.Height = '100%'
-                    object UniSimplePanel10: TUniSimplePanel
+                    object UniSimplePanel9: TUniSimplePanel
                       AlignWithMargins = True
                       Left = 3
                       Top = 3
@@ -376,20 +374,21 @@ inherited frmUsuarios: TfrmUsuarios
                       Align = alLeft
                       TabOrder = 1
                       Layout = 'column'
-                      object edtConfirmarsenha: TUniEdit
+                      object dbEditSenha: TUniDBEdit
                         Left = 0
                         Top = 0
                         Width = 320
                         Height = 59
                         Hint = ''
+                        DataField = 'SENHA'
+                        DataSource = dsCad
                         PasswordChar = '*'
-                        CharEOL = '*'
-                        Text = ''
+                        CharCase = ecUpperCase
+                        Align = alClient
                         ParentFont = False
                         Font.Height = -15
-                        Align = alClient
                         TabOrder = 1
-                        FieldLabel = 'Confirmar a senha'
+                        FieldLabel = 'Senha'
                         FieldLabelAlign = laTop
                       end
                     end
@@ -400,10 +399,6 @@ inherited frmUsuarios: TfrmUsuarios
             object UniTabSheet2: TUniTabSheet
               Hint = ''
               Caption = 'Empresas'
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitWidth = 939
-              ExplicitHeight = 592
               object UniSimplePanel12: TUniSimplePanel
                 AlignWithMargins = True
                 Left = 3
@@ -416,9 +411,6 @@ inherited frmUsuarios: TfrmUsuarios
                 AlignmentControl = uniAlignmentClient
                 ParentAlignmentControl = False
                 TabOrder = 0
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 931
                 object UniLabel4: TUniLabel
                   Left = 3
                   Top = 3
@@ -442,9 +434,6 @@ inherited frmUsuarios: TfrmUsuarios
                 ParentColor = False
                 Align = alLeft
                 TabOrder = 1
-                ExplicitLeft = 0
-                ExplicitTop = 43
-                ExplicitHeight = 521
                 object UniSimplePanel18: TUniSimplePanel
                   Left = 0
                   Top = 0
@@ -454,8 +443,6 @@ inherited frmUsuarios: TfrmUsuarios
                   ParentColor = False
                   Align = alTop
                   TabOrder = 1
-                  ExplicitLeft = 104
-                  ExplicitTop = 224
                   object UniLabel5: TUniLabel
                     Left = 0
                     Top = 0
@@ -470,8 +457,6 @@ inherited frmUsuarios: TfrmUsuarios
                     Font.Height = -16
                     Font.Style = [fsBold]
                     TabOrder = 1
-                    ExplicitLeft = 11
-                    ExplicitTop = 11
                   end
                   object UniDBGrid3: TUniDBGrid
                     Left = 0
@@ -495,10 +480,6 @@ inherited frmUsuarios: TfrmUsuarios
                   ParentColor = False
                   Align = alClient
                   TabOrder = 2
-                  ExplicitLeft = 112
-                  ExplicitTop = 280
-                  ExplicitWidth = 256
-                  ExplicitHeight = 128
                   object UniDBGrid2: TUniDBGrid
                     Left = 0
                     Top = 21
@@ -524,7 +505,6 @@ inherited frmUsuarios: TfrmUsuarios
                     Font.Height = -16
                     Font.Style = [fsBold]
                     TabOrder = 2
-                    ExplicitWidth = 282
                   end
                   object UniDBNavigator1: TUniDBNavigator
                     Left = 56
@@ -547,8 +527,6 @@ inherited frmUsuarios: TfrmUsuarios
                 ParentColor = False
                 Align = alLeft
                 TabOrder = 2
-                ExplicitTop = 0
-                ExplicitHeight = 1276
               end
             end
           end
@@ -598,6 +576,7 @@ inherited frmUsuarios: TfrmUsuarios
         Size = 40
       end
       item
+        Name = 'FDQryCadField7'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_USUARIOS_ID'
@@ -671,13 +650,13 @@ inherited frmUsuarios: TfrmUsuarios
     Params = <
       item
         DataType = ftString
-        Name = 'NOME'
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       'SELECT *  FROM usuarios'
-      'WHERE nome LIKE :NOME  || '#39'%'#39
+      'WHERE nome LIKE :P01  || '#39'%'#39
       'ORDER BY nome')
     UpdateTableName = 'USUARIOS'
     object FDQryFiltroID: TIntegerField
@@ -716,6 +695,7 @@ inherited frmUsuarios: TfrmUsuarios
         Size = 60
       end
       item
+        Name = 'FDQryEmpresaField3'
         DataType = ftInteger
       end>
     SortOrder = soAsc
@@ -756,7 +736,7 @@ inherited frmUsuarios: TfrmUsuarios
     Top = 213
   end
   object FDQryEmpresasUsuario: TRESTDWClientSQL
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
       item

@@ -46,8 +46,11 @@ type
     FDQryPessoaTELEFONE: TStringField;
     UniGridExcelExporter1: TUniGridExcelExporter;
     FDQryEmpresa: TRESTDWClientSQL;
-    FDQryEmpresaCODIGO: TIntegerField;
+    dsEmpresa: TDataSource;
+    FDQryEmpresaCODIUSUARIO: TIntegerField;
+    FDQryEmpresaCODIEMPRESA: TIntegerField;
     FDQryEmpresaNOME: TStringField;
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,6 +69,37 @@ uses
 function dmComum: TdmComum;
 begin
   Result := TdmComum(UniMainModule.GetModuleInstance(TdmComum));
+end;
+
+procedure TdmComum.DataModuleDestroy(Sender: TObject);
+begin
+   { if FDQryUnidade <> nil then
+        FDQryUnidade.Active := False;
+
+    if FDQryPessoa <> nil then
+        FDQryPessoa.Active := False;
+
+    if FDQryCategoria <> nil then
+        FDQryCategoria.Active := False;
+
+    if FDQrySetor <> nil then
+        FDQrySetor.Active := False;
+
+    if FDQryGrupo <> nil then
+        FDQryGrupo.Active := False;
+
+    if FDQryCentro <> nil then
+        FDQryCentro.Active := False;
+
+    if FDQryFornecedor <> nil then
+        FDQryFornecedor.Active := False;
+
+    if FDQryCidade <> nil then
+        FDQryCidade.Active := False;
+
+    if FDQryEmpresa <> nil then
+        FDQryEmpresa.Active := False;   }
+
 end;
 
 initialization

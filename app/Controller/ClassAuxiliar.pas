@@ -9,7 +9,7 @@ uses
   uniGUIClasses, uniGUIForm, uniButton, uniPanel, uniGUIBaseClasses, uniGroupBox,
   uniBasicGrid, uniDBGrid, Vcl.Imaging.pngimage, uniImage, uniPageControl,
   uniSplitter, uniBitBtn, uniSpeedButton, uniEdit, uniLabel, uniToolBar,
-  Data.DB, uniDBText, uniDBEdit, uniScrollBox,
+  Data.DB, uniDBText, uniDBEdit, uniScrollBox, uniSyntaxEditor,
   uniMultiItem, uniComboBox, uniDBComboBox, Vcl.StdCtrls, IdBaseComponent,
   IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, uniMemo;
 
@@ -47,6 +47,16 @@ uses
     property UfCep: string read FUfCep write FUfCep ;
 
     function BuscaDadosCep(cCep:String):boolean ;
+
+  end;
+
+  TChat = class (TComponent)
+  private
+    Fativar: Boolean ;
+  public
+    property Ativar: Boolean read Fativar write Fativar ;
+
+    function CarregarScript:string ;
 
   end;
 
@@ -265,5 +275,30 @@ begin
 
    result := true ;
 end;
+
+
+{ TChat }
+
+
+ function TChat.CarregarScript: string;
+var
+   ArquivoChat:TUniSyntaxEdit ;
+begin
+
+   if Fativar then
+      begin
+        ArquivoChat := TUniSyntaxEdit.Create(self);
+        Try
+          ArquivoChat.Lines.LoadFromFile('./files/chat.ini');
+          Result := ArquivoChat.Text;
+        Finally
+          FreeAndNil(ArquivoChat);
+        End;
+      end
+   Else
+      Result := '' ;
+
+end;
+
 
 end.

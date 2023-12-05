@@ -5,9 +5,7 @@ object dmDados: TdmDados
   Width = 404
   object FireDacCon: TFDConnection
     Params.Strings = (
-      
-        'Database=C:\Users\adail\Documents\GitHub\patweb\servidor\dados\P' +
-        'ATWEB.FDB'
+      'Database=C:\srvpatweb\dados\PATWEB.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'

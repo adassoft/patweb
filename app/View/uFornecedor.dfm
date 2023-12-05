@@ -1,12 +1,6 @@
 inherited frmFornecedor: TfrmFornecedor
   inherited PageCadastro: TUniPageControl
-    inherited Tab1: TUniTabSheet
-      ExplicitTop = 24
-      ExplicitHeight = 429
-      inherited UniDBGrid1: TUniDBGrid
-        Height = 376
-      end
-    end
+    ActivePage = Tab2
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
@@ -117,6 +111,7 @@ inherited frmFornecedor: TfrmFornecedor
                   TabOrder = 1
                   FieldLabel = 'CNPJ'
                   FieldLabelAlign = laTop
+                  OnExit = UniDBEdit3Exit
                 end
               end
               object UniSimplePanel14: TUniSimplePanel
@@ -458,21 +453,29 @@ inherited frmFornecedor: TfrmFornecedor
       Size = 30
     end
   end
+  inherited dsCad: TDataSource
+    Left = 721
+    Top = 162
+  end
+  inherited dsFiltro: TDataSource
+    Left = 617
+    Top = 160
+  end
   inherited FDQryFiltro: TRESTDWClientSQL
     BinaryRequest = True
     Params = <
       item
         DataType = ftString
-        Name = 'NOME'
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
         'Select CODIGO, NOME, CNPJ, TELEFONE, EMAIL, SITE From FORNECEDOR' +
-        'ES WHERE NOME LIKE :NOME   || '#39'%'#39
+        'ES WHERE NOME LIKE :P01   || '#39'%'#39
       'ORDER BY CODIGO')
-    Left = 796
-    Top = 424
+    Left = 620
+    Top = 96
   end
 end

@@ -1,5 +1,6 @@
 inherited frmCategoria: TfrmCategoria
   inherited PageCadastro: TUniPageControl
+    ActivePage = Tab2
     inherited Tab1: TUniTabSheet
       inherited UniDBGrid1: TUniDBGrid
         Columns = <
@@ -33,14 +34,14 @@ inherited frmCategoria: TfrmCategoria
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
-          ScrollHeight = 124
+          ScrollHeight = 157
           ScrollWidth = 682
           inherited UniSimplePanel19: TUniSimplePanel
             TabOrder = 7
           end
           object UniDBEdit1: TUniDBEdit
             Left = 16
-            Top = 22
+            Top = 55
             Width = 88
             Height = 36
             Hint = ''
@@ -54,7 +55,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBEdit2: TUniDBEdit
             Left = 110
-            Top = 22
+            Top = 55
             Width = 572
             Height = 36
             Hint = ''
@@ -66,7 +67,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBNumberEdit1: TUniDBNumberEdit
             Left = 16
-            Top = 88
+            Top = 121
             Width = 121
             Height = 36
             Hint = ''
@@ -80,7 +81,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBNumberEdit2: TUniDBNumberEdit
             Left = 152
-            Top = 88
+            Top = 121
             Width = 121
             Height = 36
             Hint = ''
@@ -94,7 +95,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBNumberEdit3: TUniDBNumberEdit
             Left = 288
-            Top = 88
+            Top = 121
             Width = 121
             Height = 36
             Hint = ''
@@ -109,7 +110,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBNumberEdit4: TUniDBNumberEdit
             Left = 425
-            Top = 88
+            Top = 121
             Width = 121
             Height = 36
             Hint = ''
@@ -124,7 +125,7 @@ inherited frmCategoria: TfrmCategoria
           end
           object UniDBNumberEdit5: TUniDBNumberEdit
             Left = 561
-            Top = 88
+            Top = 121
             Width = 121
             Height = 36
             Hint = ''
@@ -141,6 +142,12 @@ inherited frmCategoria: TfrmCategoria
       end
     end
   end
+  inherited UniHiddenPanel1: TUniHiddenPanel
+    Left = 46
+    Top = 248
+    ExplicitLeft = 46
+    ExplicitTop = 248
+  end
   inherited UniNativeImageList1: TUniNativeImageList
     Left = 752
     Top = 240
@@ -156,6 +163,10 @@ inherited frmCategoria: TfrmCategoria
         Name = 'DESCRICAO'
         DataType = ftString
         Size = 100
+      end
+      item
+        Name = 'CODIEMPRESA'
+        DataType = ftInteger
       end
       item
         Name = 'ATIVOIMOBILIZADO'
@@ -194,34 +205,36 @@ inherited frmCategoria: TfrmCategoria
         DataType = ftSmallint
       end
       item
-        Name = 'FDQryCadField11'
+        Name = 'FDQryCadField12'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_CATEGORIAS_ID'
     SequenceField = 'CODIGO'
     Params = <
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'CODIGO'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, DESCRICAO, ATIVOIMOBILIZADO, DEPRECIACAOACUMULADA' +
-        ', DEPRECIACAO, TAXAMENSAL, TAXAACELERADA, TAXAINCENTIVADA, TAXAA' +
-        'NUAL, VIDAUTIL From CATEGORIAS WHERE CODIGO = :CODIGO')
+        'Select CODIGO, DESCRICAO, CODIEMPRESA, ATIVOIMOBILIZADO, DEPRECI' +
+        'ACAOACUMULADA, DEPRECIACAO, TAXAMENSAL, TAXAACELERADA, TAXAINCEN' +
+        'TIVADA, TAXAANUAL, VIDAUTIL From CATEGORIAS WHERE CODIGO = :CODI' +
+        'GO')
     UpdateTableName = 'CATEGORIAS'
     object FDQryCadCODIGO: TIntegerField
       AutoGenerateValue = arAutoInc
-      DisplayLabel = 'C'#211'DIGO'
-      DisplayWidth = 15
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object FDQryCadDESCRICAO: TStringField
       FieldName = 'DESCRICAO'
       Size = 100
+    end
+    object FDQryCadCODIEMPRESA: TIntegerField
+      FieldName = 'CODIEMPRESA'
     end
     object FDQryCadATIVOIMOBILIZADO: TIntegerField
       FieldName = 'ATIVOIMOBILIZADO'
@@ -283,14 +296,20 @@ inherited frmCategoria: TfrmCategoria
     Params = <
       item
         DataType = ftString
-        Name = 'DESCRICAO'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
         'Select CODIGO, DESCRICAO, VIDAUTIL, TAXAMENSAL, TAXAANUAL  From ' +
-        'CATEGORIAS WHERE DESCRICAO LIKE :DESCRICAO   || '#39'%'#39
+        'CATEGORIAS WHERE CODIEMPRESA=:CODIEMPRESA AND  DESCRICAO LIKE :P' +
+        '01   || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'CATEGORIAS'
     object FDQryFiltroCODIGO: TIntegerField

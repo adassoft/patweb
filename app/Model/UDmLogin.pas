@@ -27,6 +27,7 @@ type
     ValidaUsuarioEmailID: TIntegerField;
     ValidaUsuarioEmailNOME: TStringField;
     ValidaUsuarioEmailSENHA: TStringField;
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,6 +46,21 @@ uses
 function DMLogin: TDMLogin;
 begin
   Result := TDMLogin(UniMainModule.GetModuleInstance(TDMLogin));
+end;
+
+procedure TDMLogin.DataModuleDestroy(Sender: TObject);
+begin
+
+     {if QryLogin <> nil then
+        QryLogin.Active := False;
+
+     if QryCadUsuarioNovo <> nil then
+        QryCadUsuarioNovo.Active := False;
+
+     if ValidaUsuarioEmail <> nil then
+        ValidaUsuarioEmail.Active := False;  }
+
+
 end;
 
 initialization

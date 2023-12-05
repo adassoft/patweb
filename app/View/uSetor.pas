@@ -6,14 +6,15 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrameBase, Data.DB,
   uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB, uniGUIBaseClasses,
-  uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
-  uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
-  uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox, uRESTDWAbout,
-  ACBrBase, ACBrEnterTab;
+  uniImageList, uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox,
+  uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses, uniEdit,
+  uniPageControl, uniButton, uniBitBtn, uniLabel, MainModule, udmComum,
+  ClassAlert, uniDBEdit;
 
 type
   TfrmSetor = class(TFrameBase)
     FDQryFiltroCODIGO: TIntegerField;
+    FDQryFiltroCODIEMPRESA: TIntegerField;
     FDQryFiltroSETOR: TStringField;
     FDQryFiltroUNIDADE: TStringField;
     FDQryFiltroRESPONSAVEL: TStringField;
@@ -21,12 +22,15 @@ type
     FDQryCadNOME: TStringField;
     FDQryCadCODIRESPONSAVEL: TIntegerField;
     FDQryCadCODIUNIDADE: TIntegerField;
-    procedure FDQryCadAfterScroll(DataSet: TDataSet);
-    procedure BtAltClick(Sender: TObject);
+    UniDBEdit1: TUniDBEdit;
+    UniDBLookupComboBox1: TUniDBLookupComboBox;
+    UniDBEdit2: TUniDBEdit;
+    UniDBLookupComboBox2: TUniDBLookupComboBox;
     procedure BtIncClick(Sender: TObject);
+    procedure BtAltClick(Sender: TObject);
   private
     { Private declarations }
-    procedure AbriTabelas;
+    procedure AbreTabelas;
   public
     { Public declarations }
   end;
@@ -38,9 +42,9 @@ implementation
 
 {$R *.dfm}
 
-uses MainModule, udmComum, ClassAlert;
+{ TfrmSetor }
 
-procedure TfrmSetor.AbriTabelas;
+procedure TfrmSetor.AbreTabelas;
 begin
 try
   dmComum.FDQryUnidade.Close;
@@ -56,19 +60,13 @@ end;
 procedure TfrmSetor.BtAltClick(Sender: TObject);
 begin
   inherited;
-  AbriTabelas;
+  AbreTabelas;
 end;
 
 procedure TfrmSetor.BtIncClick(Sender: TObject);
 begin
   inherited;
-  AbriTabelas;
-end;
-
-procedure TfrmSetor.FDQryCadAfterScroll(DataSet: TDataSet);
-begin
-  inherited;
-  AbriTabelas;
+  AbreTabelas;
 end;
 
 end.

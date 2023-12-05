@@ -405,8 +405,7 @@ end;
 
 // Botão filtrar
 procedure TFrameBase.BtFiltrarClick(Sender: TObject);
-  var i : integer;
-  begin
+begin
 
    if ( EdPesquisar.Text = EmptyStr ) then
        Begin
@@ -417,23 +416,15 @@ procedure TFrameBase.BtFiltrarClick(Sender: TObject);
 
     // Abre a query do filtro
     if  FDQryCad.State in [dsEdit,dsInsert] then
-       begin
+    begin
          UniAlert.SwAlerta('ATENÇÃO' , 'Registro está em modo de Edição ', Aviso , 3000);
          abort ;
-
-       end;
+    end;
 
      FDQryFiltro.Close;
 
-
-
-    for i := 0 to  FDQryFiltro.Params.Count-1 do
-        Begin
-          //If LblPesquisa.Tag = 1 then
-          //    FDQryFiltro.Params[i].AsString := '%'+EdPesquisar.Text
-          //Else
-              FDQryFiltro.Params[i].AsString := '%'+EdPesquisar.Text
-        End;
+      FDQryFiltro.ParamByName('CODIEMPRESA').AsInteger := UniMainModule.UserRecord.vEmpresaEscolhia;
+      FDQryFiltro.ParamByName('P01').AsString := '%'+EdPesquisar.Text;
 
      FDQryFiltro.Open;
 

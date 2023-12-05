@@ -98,20 +98,25 @@ begin
   inherited;
 
   // Validar o CPF digitado
-    if Length(Trim(UniDBEdit4.Text)) > 10 then
+  if (Length(Trim(UniDBEdit4.Text)) > 0) then
+  begin
+    if (Length(Trim(UniDBEdit4.Text)) > 10) then
     begin
-    if not(ClassAuxiliar.Acoes.ValidaCNPJ_CPF(UniDBEdit4.Text)) then
-    begin
-     ShowMessage('O CPF digitado não é válido');
-     UniDBEdit4.SetFocus;
-     Abort;
-    end;
+        if not(ClassAuxiliar.Acoes.ValidaCNPJ_CPF(UniDBEdit4.Text)) then
+        begin
+         ShowMessage('O CPF digitado não é válido.');
+         UniDBEdit4.SetFocus;
+         Abort;
+        end;
     end else
     begin
-      ShowMessage('O CPF digitado não é válidoddddd');
+      ShowMessage('Confira o CPF digitado.');
       UniDBEdit4.SetFocus;
       Abort;
     end;
+  end;
+
 end;
+
 
 end.

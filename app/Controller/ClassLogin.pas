@@ -53,7 +53,7 @@ begin
                Result := false
             Else
             begin
-               UniMainModule.vUsuarioLongado := QryLoginID.Value;
+               UniMainModule.UserRecord.vUsuarioLongado := QryLoginID.Value;
 
                Result := true ;
             end;

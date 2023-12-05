@@ -6,27 +6,28 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UFrameBase, Data.DB,
   uRESTDWMemoryDataset, uRESTDWBasicTypes, uRESTDWBasicDB, uniGUIBaseClasses,
-  uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
-  uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
-  uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox, uniRadioGroup,
-  uniDBRadioGroup, ACBrBase, ACBrEnterTab, uniImage, uniMemo, uniDBMemo,
-  Vcl.Imaging.pngimage, uniDateTimePicker, uniDBDateTimePicker;
+  uniImageList, uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox,
+  uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses, uniEdit,
+  uniPageControl, uniButton, uniBitBtn, uniLabel, MainModule, uniDateTimePicker,
+  uniDBDateTimePicker, uniDBEdit, uniMemo, uniDBMemo, udmComum, ClassAlert;
 
 type
   TfrmCadPatrimonio = class(TFrameBase)
     FDQryFiltroCODIGO: TIntegerField;
     FDQryFiltroTOMBAMENTO: TFloatField;
     FDQryFiltroDESCREDUZAIDA: TStringField;
-    FDQryFiltroNOME: TStringField;
     FDQryFiltroDATACOMPTA: TSQLTimeStampField;
     FDQryFiltroESTADOCONS: TStringField;
     FDQryFiltroVALOR: TFloatField;
+    FDQryFiltroNOME: TStringField;
+    FDQryFiltroCODIEMPRESA: TIntegerField;
     FDQryCadCODIGO: TIntegerField;
     FDQryCadCODIUNIDADE: TSmallintField;
     FDQryCadCODICATEGORIA: TIntegerField;
     FDQryCadCODIGOGRUPO: TIntegerField;
     FDQryCadCODICENTRO: TIntegerField;
     FDQryCadCODIPESSOA: TIntegerField;
+    FDQryCadCODIEMPRESA: TIntegerField;
     FDQryCadTOMBAMENTO: TFloatField;
     FDQryCadPLACASERIE: TStringField;
     FDQryCadMARCA: TStringField;
@@ -81,120 +82,55 @@ type
     FDQryCadUNAREATOTAL: TStringField;
     FDQryCadUNAREACONSTRUIDA: TStringField;
     FDQryCadIMOVEL: TStringField;
-    UniSimplePanel1: TUniSimplePanel;
-    plEsquerdo: TUniSimplePanel;
-    UniScrollBox2: TUniScrollBox;
-    UniSimplePanel7: TUniSimplePanel;
-    UniSimplePanel5: TUniSimplePanel;
-    UniSimplePanel2: TUniSimplePanel;
     UniDBEdit1: TUniDBEdit;
-    UniImage4: TUniImage;
-    UniSimplePanel4: TUniSimplePanel;
     UniDBEdit2: TUniDBEdit;
-    UniImage5: TUniImage;
-    UniSimplePanel17: TUniSimplePanel;
     UniDBComboBox1: TUniDBComboBox;
-    UniSimplePanel9: TUniSimplePanel;
-    UniSimplePanel3: TUniSimplePanel;
     UniDBLookupComboBox1: TUniDBLookupComboBox;
-    UniImage1: TUniImage;
-    UniSimplePanel11: TUniSimplePanel;
     UniDBLookupComboBox8: TUniDBLookupComboBox;
-    UniSimplePanel8: TUniSimplePanel;
-    UniSimplePanel10: TUniSimplePanel;
-    UniDBLookupComboBox7: TUniDBLookupComboBox;
-    UniImage2: TUniImage;
-    UniSimplePanel12: TUniSimplePanel;
     UniDBLookupComboBox2: TUniDBLookupComboBox;
-    UniSimplePanel13: TUniSimplePanel;
-    UniSimplePanel14: TUniSimplePanel;
+    UniDBLookupComboBox7: TUniDBLookupComboBox;
     UniDBLookupComboBox9: TUniDBLookupComboBox;
-    UniImage3: TUniImage;
-    UniSimplePanel18: TUniSimplePanel;
     UniDBLookupComboBox11: TUniDBLookupComboBox;
-    UniSimplePanel15: TUniSimplePanel;
-    UniSimplePanel16: TUniSimplePanel;
-    UniDBEdit3: TUniDBEdit;
-    UniSimplePanel21: TUniSimplePanel;
+    UniDBComboBox3: TUniDBComboBox;
+    UniDBLookupComboBox3: TUniDBLookupComboBox;
     UniContainerPanel1: TUniContainerPanel;
     UniLabel17: TUniLabel;
     UniLabel18: TUniLabel;
-    UniSimplePanel20: TUniSimplePanel;
-    UniSimplePanel22: TUniSimplePanel;
     UniDBMemo1: TUniDBMemo;
-    UniSimplePanel23: TUniSimplePanel;
-    UniSimplePanel24: TUniSimplePanel;
-    UniDBEdit4: TUniDBEdit;
-    UniImage6: TUniImage;
-    UniSimplePanel25: TUniSimplePanel;
-    UniDBEdit5: TUniDBEdit;
-    UniImage7: TUniImage;
-    UniSimplePanel26: TUniSimplePanel;
-    UniDBComboBox2: TUniDBComboBox;
-    UniImage8: TUniImage;
-    UniSimplePanel27: TUniSimplePanel;
-    UniDBComboBox3: TUniDBComboBox;
-    UniSimplePanel28: TUniSimplePanel;
     UniContainerPanel3: TUniContainerPanel;
     UniLabel2: TUniLabel;
     UniLabel3: TUniLabel;
-    UniSimplePanel29: TUniSimplePanel;
-    UniSimplePanel30: TUniSimplePanel;
+    UniDBComboBox2: TUniDBComboBox;
     UniDBNumberEdit1: TUniDBNumberEdit;
-    UniImage11: TUniImage;
-    UniSimplePanel31: TUniSimplePanel;
     UniDBNumberEdit2: TUniDBNumberEdit;
-    UniImage12: TUniImage;
-    UniSimplePanel33: TUniSimplePanel;
     UniDBDateTimePicker1: TUniDBDateTimePicker;
-    UniSimplePanel32: TUniSimplePanel;
-    UniSimplePanel34: TUniSimplePanel;
-    UniImage13: TUniImage;
-    UniSimplePanel35: TUniSimplePanel;
-    UniImage14: TUniImage;
-    UniSimplePanel36: TUniSimplePanel;
-    UniDBEdit6: TUniDBEdit;
-    UniDBEdit7: TUniDBEdit;
-    UniDBNumberEdit3: TUniDBNumberEdit;
-    UniSimplePanel37: TUniSimplePanel;
-    UniContainerPanel4: TUniContainerPanel;
-    UniLabel4: TUniLabel;
-    UniLabel5: TUniLabel;
-    UniSimplePanel38: TUniSimplePanel;
-    UniSimplePanel39: TUniSimplePanel;
-    UniDBEdit8: TUniDBEdit;
-    UniImage16: TUniImage;
-    UniSimplePanel40: TUniSimplePanel;
-    UniDBEdit9: TUniDBEdit;
-    UniImage17: TUniImage;
-    UniSimplePanel41: TUniSimplePanel;
-    UniImage18: TUniImage;
-    UniSimplePanel42: TUniSimplePanel;
-    UniDBEdit10: TUniDBEdit;
-    UniDBEdit11: TUniDBEdit;
-    UniSimplePanel43: TUniSimplePanel;
+    UniContainerPanel6: TUniContainerPanel;
+    UniLabel8: TUniLabel;
+    UniLabel9: TUniLabel;
     UniContainerPanel5: TUniContainerPanel;
     UniLabel6: TUniLabel;
     UniLabel7: TUniLabel;
-    UniSimplePanel44: TUniSimplePanel;
-    UniSimplePanel45: TUniSimplePanel;
+    UniDBEdit3: TUniDBEdit;
+    UniSimplePanel1: TUniSimplePanel;
+    UniDBEdit16: TUniDBEdit;
+    UniDBEdit4: TUniDBEdit;
+    UniDBEdit5: TUniDBEdit;
+    UniDBEdit8: TUniDBEdit;
+    UniDBEdit9: TUniDBEdit;
+    UniDBEdit10: TUniDBEdit;
+    UniDBEdit11: TUniDBEdit;
+    UniDBEdit6: TUniDBEdit;
+    UniDBEdit7: TUniDBEdit;
     UniDBEdit12: TUniDBEdit;
-    UniImage20: TUniImage;
-    UniSimplePanel46: TUniSimplePanel;
     UniDBEdit13: TUniDBEdit;
-    UniImage21: TUniImage;
-    UniSimplePanel47: TUniSimplePanel;
     UniDBEdit14: TUniDBEdit;
-    UniImage22: TUniImage;
-    UniSimplePanel48: TUniSimplePanel;
     UniDBEdit15: TUniDBEdit;
-    plDireito: TUniSimplePanel;
+    UniDBEdit17: TUniDBEdit;
     procedure BtIncClick(Sender: TObject);
     procedure BtAltClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbriTabelas;
-    procedure RedimenciosaTela;
   public
     { Public declarations }
   end;
@@ -205,8 +141,6 @@ var
 implementation
 
 {$R *.dfm}
-
-uses MainModule, udmComum, ClassAlert;
 
 { TfrmCadPatrimonio }
 
@@ -279,29 +213,16 @@ end;
 
 procedure TfrmCadPatrimonio.BtAltClick(Sender: TObject);
 begin
-  inherited;
   AbriTabelas;
+  inherited;
+
 end;
 
 procedure TfrmCadPatrimonio.BtIncClick(Sender: TObject);
 begin
-  inherited;
   AbriTabelas;
-end;
+  inherited;
 
-procedure TfrmCadPatrimonio.RedimenciosaTela;
-begin
-  //Se a aplicação for acessada através de um dispositivo mobile ajusta os campos
-  {if (UniSession.IsMobile) then
-  begin
-     plEsquerdo.Width := 10;
-     plDireito.Width := 10;
-  end else
-
-     if frmCadPatrimonio.Width < 760 then
-     begin
-        UniSimplePanel3.Align := alClient;
-     end;}
 end;
 
 end.

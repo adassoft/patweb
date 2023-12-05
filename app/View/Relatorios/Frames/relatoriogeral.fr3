@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<TfrxReport Version="6.9.14" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Padrão" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="45265,5316410301" ReportOptions.Description.Text="" ReportOptions.LastChange="45265,6961241782" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="frxDBDRelacaoGeral" DataSetName="frxDBDataset1"/>
+  </Datasets>
+  <TfrxDataPage Name="Data" HGuides.Text="" VGuides.Text="" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" HGuides.Text="" VGuides.Text="" Orientation="poLandscape" PaperWidth="297" PaperHeight="210" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" Frame.Typ="0" MirrorMode="0">
+    <TfrxReportTitle Name="ReportTitle1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="86,92919" Left="0" Top="18,89765" Width="1046,92981">
+      <TfrxMemoView Name="Memo1" AllowVectorExport="True" Left="22,67718" Top="37,7953" Width="1001,57545" Height="22,67718" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" Frame.Typ="0" HAlign="haCenter" ParentFont="False" Text="RELAÇÃO GERAL DE BENS PATRIMONIAIS"/>
+      <TfrxMemoView Name="Memo15" AllowVectorExport="True" Left="22,67718" Top="0" Width="1001,57545" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-24" Font.Name="Arial" Font.Style="0" Frame.Typ="0" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;NOME&#34;]"/>
+      <TfrxMemoView Name="Memo16" AllowVectorExport="True" Left="11,33859" Top="68,03154" Width="476,22078" Height="15,11812" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" Frame.Typ="0" ParentFont="False" Text="Unidade: [frxDBDataset1.&#34;NOME1&#34;]"/>
+      <TfrxMemoView Name="Memo17" AllowVectorExport="True" Left="532,91373" Top="68,03154" Width="506,45702" Height="15,11812" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" Frame.Typ="0" HAlign="haRight" ParentFont="False" Text="[Date] [Time] - Página [Page#] de [TotalPages#]">
+        <Formats>
+          <item/>
+          <item/>
+          <item/>
+        </Formats>
+      </TfrxMemoView>
+    </TfrxReportTitle>
+    <TfrxHeader Name="Header1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="56,69295" Left="0" Top="166,29932" Width="1046,92981">
+      <TfrxMemoView Name="Memo2" AllowVectorExport="True" Left="0" Top="30,23624" Width="64,25201" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="5" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ORDEM"/>
+      <TfrxMemoView Name="Memo3" AllowVectorExport="True" Left="64,25201" Top="30,23624" Width="109,60637" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="5" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="TOMBAMENTO"/>
+      <TfrxMemoView Name="Memo4" AllowVectorExport="True" Left="173,85838" Top="30,23624" Width="532,91373" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="5" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="DESCRIÇÃO"/>
+      <TfrxMemoView Name="Memo5" AllowVectorExport="True" Left="706,77211" Top="30,23624" Width="109,60637" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="5" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ESTADO"/>
+      <TfrxMemoView Name="Memo6" AllowVectorExport="True" Left="816,37848" Top="30,23624" Width="109,60637" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="5" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="STATUS"/>
+      <TfrxMemoView Name="Memo7" AllowVectorExport="True" Left="925,98485" Top="30,23624" Width="120,94496" Height="26,45671" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="7" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="VALOR"/>
+      <TfrxMemoView Name="Memo8" AllowVectorExport="True" Left="0" Top="0" Width="1046,92981" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="7" Frame.Width="0,5" ParentFont="False" VAlign="vaCenter" Text="UNIDADE: [frxDBDataset1.&#34;UNIDADE&#34;]"/>
+    </TfrxHeader>
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="22,67718" Left="0" Top="245,66945" Width="1046,92981" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDRelacaoGeral" DataSetName="frxDBDataset1" RowCount="0" Stretched="True">
+      <TfrxMemoView Name="Memo9" AllowVectorExport="True" Left="0" Top="0" Width="64,25201" Height="22,67718" StretchMode="smMaxHeight" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="9" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" Text="[Line#]"/>
+      <TfrxMemoView Name="Memo10" AllowVectorExport="True" Left="64,25201" Top="0" Width="109,60637" Height="22,67718" StretchMode="smMaxHeight" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="9" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;TOMBAMENTO&#34;]"/>
+      <TfrxMemoView Name="Memo11" AllowVectorExport="True" Left="173,85838" Top="0" Width="532,91373" Height="22,67718" StretchMode="smActualHeight" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="9" Frame.Width="0,5" HAlign="haBlock" ParentFont="False" Text="[frxDBDataset1.&#34;DESCREDUZAIDA&#34;] [frxDBDataset1.&#34;DESCDETALHADA&#34;]"/>
+      <TfrxMemoView Name="Memo12" AllowVectorExport="True" Left="706,77211" Top="0" Width="109,60637" Height="22,67718" StretchMode="smMaxHeight" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="9" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;ESTADOCONS&#34;]"/>
+      <TfrxMemoView Name="Memo13" AllowVectorExport="True" Left="816,37848" Top="0" Width="109,60637" Height="22,67718" StretchMode="smMaxHeight" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="9" Frame.Width="0,5" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;STATUS&#34;]"/>
+      <TfrxMemoView Name="Memo14" AllowVectorExport="True" Left="925,98485" Top="0" Width="120,94496" Height="22,67718" StretchMode="smMaxHeight" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.2m" DisplayFormat.Kind="fkNumeric" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="11" Frame.Width="0,5" HAlign="haRight" ParentFont="False" Text="[frxDBDataset1.&#34;VALOR&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>

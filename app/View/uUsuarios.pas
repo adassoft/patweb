@@ -76,6 +76,7 @@ type
     procedure BtAltClick(Sender: TObject);
     procedure BtIncClick(Sender: TObject);
     procedure UniDBGrid3BodyDblClick(Sender: TObject);
+    procedure BtFiltrarClick(Sender: TObject);
   private
     procedure AbriTabelas;
   public
@@ -103,6 +104,34 @@ procedure TfrmUsuarios.BtAltClick(Sender: TObject);
 begin
   inherited;
   AbriTabelas;
+end;
+
+procedure TfrmUsuarios.BtFiltrarClick(Sender: TObject);
+var i : integer;
+begin
+
+   if ( EdPesquisar.Text = EmptyStr ) then
+       Begin
+          FDQryFiltro.Close ;
+         abort ;
+       End;
+
+
+    // Abre a query do filtro
+    if  FDQryCad.State in [dsEdit,dsInsert] then
+    begin
+         UniAlert.SwAlerta('ATENÇÃO' , 'Registro está em modo de Edição ', Aviso , 3000);
+         abort ;
+    end;
+
+     FDQryFiltro.Close;
+     FDQryFiltro.ParamByName('P01').AsString := '%'+EdPesquisar.Text;
+     FDQryFiltro.Open;
+
+    SetBut(tpListacomRegistros);
+
+    UniDbGrid1.SetFocus ; // Joga o Foco para o Grid ;
+
 end;
 
 procedure TfrmUsuarios.BtGrvClick(Sender: TObject);

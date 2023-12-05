@@ -181,13 +181,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="View\uSetor.pas">
-            <Form>frmSetor</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TUniFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="View\uPatrimonio.pas">
-            <Form>frmCadPatrimonio</Form>
+        <DCCReference Include="View\uPatrimoniorrrr.pas">
+            <Form>frmCadPatrimoniorr</Form>
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
@@ -218,6 +213,37 @@
             <FormType>dfm</FormType>
             <DesignClass>TUniFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="Model\udmDashboard.pas">
+            <Form>dmDashboard</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\uSetor.pas">
+            <Form>frmSetor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\uPatrimonio.pas">
+            <Form>frmCadPatrimonio</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\Relatorios\Frames\UFrameRelatorioGeral.pas">
+            <Form>FrmRelatorioGeral</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniForm</DesignClass>
+        </DCCReference>
+        <DCCReference Include="View\Relatorios\URelRelacaoGeral.pas">
+            <Form>FrmRelRelacaoGeral</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TUniForm</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Model\udmRelatorios.pas">
+            <Form>dmRelatorios</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Controller\ClassRelatorios.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

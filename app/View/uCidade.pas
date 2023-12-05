@@ -9,7 +9,7 @@ uses
   uniImageList, uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses,
   uniEdit, uniPageControl, uniButton, uniBitBtn, uniLabel, uniDBEdit,
   uniMultiItem, uniComboBox, uniDBComboBox, ACBrBase, ACBrEnterTab,
-  uniDBLookupComboBox;
+  uniDBLookupComboBox, ClassAlert;
 
 type
   TfrmCidades = class(TFrameBase)
@@ -28,6 +28,7 @@ type
     UniDBComboBox1: TUniDBComboBox;
     UniDBEdit3: TUniDBEdit;
     UniDBEdit4: TUniDBEdit;
+    procedure BtFiltrarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,5 +43,32 @@ implementation
 {$R *.dfm}
 
 uses MainModule;
+
+procedure TfrmCidades.BtFiltrarClick(Sender: TObject);
+begin
+   if ( EdPesquisar.Text = EmptyStr ) then
+       Begin
+          FDQryFiltro.Close ;
+         abort ;
+       End;
+
+
+    // Abre a query do filtro
+    if  FDQryCad.State in [dsEdit,dsInsert] then
+    begin
+         UniAlert.SwAlerta('ATENÇÃO' , 'Registro está em modo de Edição ', Aviso , 3000);
+         abort ;
+    end;
+
+     FDQryFiltro.Close;
+
+      FDQryFiltro.ParamByName('P01').AsString := '%'+EdPesquisar.Text;
+
+     FDQryFiltro.Open;
+
+    SetBut(tpListacomRegistros);
+
+    UniDbGrid1.SetFocus ; // Joga o Foco para o Grid ;
+end;
 
 end.

@@ -7,7 +7,8 @@ uses
   Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
   uniGUIClasses, uniGUIRegClasses, uniGUIForm, uniMultiItem, uniComboBox,
   uniPanel, uniLabel, uniButton, uniBitBtn, uniEdit, uniGUIBaseClasses, uniImage,
-  uniSweetAlert, ClassAlert, udmComum;
+  uniSweetAlert, ClassAlert, udmComum, uniListBox, uniDBListBox,
+  uniDBLookupListBox, uniBasicGrid, uniDBGrid;
 
 type
   TfLogin = class(TUniLoginForm)
@@ -28,6 +29,8 @@ type
       AHeight: Integer);
     procedure UniBitBtn1Click(Sender: TObject);
     procedure btnContinuarClick(Sender: TObject);
+    procedure UniLoginFormDestroy(Sender: TObject);
+    procedure UniLoginFormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,15 +51,24 @@ begin
   Result := TfLogin(UniMainModule.GetFormInstance(TfLogin));
 end;
 
+
 procedure TfLogin.btnContinuarClick(Sender: TObject);
 begin
+
   if cbEmpresa.ItemIndex > 0 then
   begin
+    dmComum.FDQryEmpresa.Close;
+    dmComum.FDQryEmpresa.ParamByName('CODIGO').AsInteger := UniMainModule.UserRecord.vUsuarioLongado;
+    dmComum.FDQryEmpresa.Open;
+
     dmComum.FDQryEmpresa.First;
+
     dmComum.FDQryEmpresa.Locate('NOME',cbEmpresa.Text,[]);
 
-    UniMainModule.vEmpresaEscolhia := dmComum.FDQryEmpresaCODIGO.Value;
-    UniMainModule.vNomeEmpresa := dmComum.FDQryEmpresaNOME.AsString;
+    // Grava o código e nome da empresa selecionada nas variáveis públicas
+    UniMainModule.UserRecord.vEmpresaEscolhia := dmComum.FDQryEmpresaCODIEMPRESA.asinteger;
+    UniMainModule.UserRecord.vNomeEmpresa := dmComum.FDQryEmpresaNOME.AsString;
+
     ModalResult := mrOK;
   end else
     UniAlert.SwAlerta('ATENÇÃO' , 'Selecione uma empresa.' , Erro , 3000);
@@ -89,9 +101,11 @@ begin
 
           // Abre a tabela para selecionar as empresa que o usuário tem direito de acesso
           dmComum.FDQryEmpresa.Close;
-          dmComum.FDQryEmpresa.ParamByName('CODIGO').AsInteger := UniMainModule.vUsuarioLongado;
+          dmComum.FDQryEmpresa.ParamByName('CODIGO').AsInteger := UniMainModule.UserRecord.vUsuarioLongado;
           dmComum.FDQryEmpresa.Open;
           dmComum.FDQryEmpresa.First;
+
+
 
           // Verifica se o usuário tem acesso a apenas uma empresa, seleciona
           // automaticamente a empresa e segue, caso contrário adiciona as
@@ -99,8 +113,8 @@ begin
           vContEmp := dmComum.FDQryEmpresa.RecordCount;
           if vContEmp = 1 then
           begin
-            UniMainModule.vEmpresaEscolhia := dmComum.FDQryEmpresaCODIGO.Value;
-            UniMainModule.vNomeEmpresa := dmComum.FDQryEmpresaNOME.AsString;
+            UniMainModule.UserRecord.vEmpresaEscolhia := dmComum.FDQryEmpresaCODIEMPRESA.Value;
+            UniMainModule.UserRecord.vNomeEmpresa := dmComum.FDQryEmpresaNOME.AsString;
             ModalResult := mrOK;
           end else
           while not(dmComum.FDQryEmpresa.eof) do
@@ -122,6 +136,11 @@ begin
 
 end;
 
+procedure TfLogin.UniLoginFormDestroy(Sender: TObject);
+begin
+  dmComum.FDQryEmpresa.Free;
+end;
+
 procedure TfLogin.UniLoginFormScreenResize(Sender: TObject; AWidth,
   AHeight: Integer);
 begin
@@ -133,6 +152,11 @@ begin
 
 end;
 
+
+procedure TfLogin.UniLoginFormShow(Sender: TObject);
+begin
+  EdUsuario.SetFocus;
+end;
 
 initialization
   RegisterAppFormClass(TfLogin);

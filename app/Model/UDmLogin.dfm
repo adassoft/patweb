@@ -1,4 +1,5 @@
 object DMLogin: TDMLogin
+  OnDestroy = DataModuleDestroy
   Height = 345
   Width = 439
   object QryLogin: TRESTDWClientSQL
@@ -30,6 +31,7 @@ object DMLogin: TDMLogin
         DataType = ftDate
       end
       item
+        Name = 'QryLoginField6'
         DataType = ftInteger
       end>
     SortOrder = soAsc
@@ -114,6 +116,7 @@ object DMLogin: TDMLogin
         DataType = ftDate
       end
       item
+        Name = 'QryCadUsuarioNovoField6'
         DataType = ftInteger
       end>
     SortOrder = soAsc
@@ -182,6 +185,7 @@ object DMLogin: TDMLogin
         Size = 40
       end
       item
+        Name = 'ValidaUsuarioEmailField4'
         DataType = ftInteger
       end>
     SortOrder = soAsc

@@ -105,14 +105,19 @@ inherited frmCentroCusto: TfrmCentroCusto
     Params = <
       item
         DataType = ftString
-        Name = 'DESCENTRO'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, DESCENTRO From CENTROCUSTRO WHERE DESCENTRO LIKE ' +
-        ':DESCENTRO || '#39'%'#39
+        'Select CODIGO, DESCENTRO From CENTROCUSTRO WHERE CODIEMPRESA=:CO' +
+        'DIEMPRESA AND  DESCENTRO LIKE :P01   || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'CENTROCUSTRO'
     object FDQryFiltroCODIGO: TIntegerField

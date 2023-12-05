@@ -12,16 +12,6 @@ uses
 
 type
   TfrmCategoria = class(TFrameBase)
-    FDQryCadCODIGO: TIntegerField;
-    FDQryCadDESCRICAO: TStringField;
-    FDQryCadATIVOIMOBILIZADO: TIntegerField;
-    FDQryCadDEPRECIACAOACUMULADA: TIntegerField;
-    FDQryCadDEPRECIACAO: TIntegerField;
-    FDQryCadTAXAMENSAL: TFloatField;
-    FDQryCadTAXAACELERADA: TFloatField;
-    FDQryCadTAXAINCENTIVADA: TFloatField;
-    FDQryCadTAXAANUAL: TFloatField;
-    FDQryCadVIDAUTIL: TSmallintField;
     FDQryFiltroCODIGO: TIntegerField;
     FDQryFiltroDESCRICAO: TStringField;
     FDQryFiltroTAXAMENSAL: TFloatField;
@@ -34,7 +24,19 @@ type
     UniDBNumberEdit3: TUniDBNumberEdit;
     UniDBNumberEdit4: TUniDBNumberEdit;
     UniDBNumberEdit5: TUniDBNumberEdit;
+    FDQryCadCODIGO: TIntegerField;
+    FDQryCadDESCRICAO: TStringField;
+    FDQryCadCODIEMPRESA: TIntegerField;
+    FDQryCadATIVOIMOBILIZADO: TIntegerField;
+    FDQryCadDEPRECIACAOACUMULADA: TIntegerField;
+    FDQryCadDEPRECIACAO: TIntegerField;
+    FDQryCadTAXAMENSAL: TFloatField;
+    FDQryCadTAXAACELERADA: TFloatField;
+    FDQryCadTAXAINCENTIVADA: TFloatField;
+    FDQryCadTAXAANUAL: TFloatField;
+    FDQryCadVIDAUTIL: TSmallintField;
     procedure UniDBNumberEdit2Exit(Sender: TObject);
+    procedure BtIncClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +51,12 @@ implementation
 {$R *.dfm}
 
 uses MainModule;
+
+procedure TfrmCategoria.BtIncClick(Sender: TObject);
+begin
+  inherited;
+  FDQryCadCODIEMPRESA.AsInteger := UniMainModule.UserRecord.vEmpresaEscolhia;
+end;
 
 procedure TfrmCategoria.UniDBNumberEdit2Exit(Sender: TObject);
 begin

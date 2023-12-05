@@ -1,4 +1,5 @@
 object UniMainModule: TUniMainModule
+  OnDestroy = UniGUIMainModuleDestroy
   Theme = 'gray'
   NavigateKeys.Next.Key = 13
   MonitoredKeys.Keys = <>
@@ -16,6 +17,8 @@ object UniMainModule: TUniMainModule
     '</html>')
   ServerMessages.InvalidSessionMessage = 'Sess'#227'o inv'#225'lida ou tempo limite de sess'#227'o expirado.'
   ServerMessages.TerminateMessage = 'Sess'#227'o da Web encerrada.'
+  OnSessionTimeout = UniGUIMainModuleSessionTimeout
+  OnBrowserClose = UniGUIMainModuleBrowserClose
   Height = 480
   Width = 640
   object RESTDWIdDatabase: TRESTDWIdDatabase

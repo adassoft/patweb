@@ -1,55 +1,6 @@
 inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
-  inherited PnlCrud: TUniPanel
-    inherited BtInc: TUniBitBtn
-      ExplicitLeft = 3
-      ExplicitTop = 3
-      ExplicitHeight = 36
-    end
-    inherited BtAlt: TUniBitBtn
-      ExplicitLeft = 89
-      ExplicitTop = 3
-      ExplicitHeight = 36
-    end
-    inherited BtExc: TUniBitBtn
-      ExplicitLeft = 175
-      ExplicitTop = 3
-      ExplicitHeight = 36
-    end
-    inherited BtCan: TUniBitBtn
-      ExplicitLeft = 261
-      ExplicitTop = 3
-      ExplicitHeight = 36
-    end
-    inherited BtGrv: TUniBitBtn
-      ExplicitLeft = 347
-      ExplicitTop = 3
-      ExplicitHeight = 36
-    end
-  end
   inherited PageCadastro: TUniPageControl
-    ActivePage = Tab2
-    inherited Tab1: TUniTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 941
-      ExplicitHeight = 429
-      inherited UniPnlPesquisar: TUniPanel
-        inherited EdPesquisar: TUniEdit
-          ExplicitLeft = 10
-          ExplicitTop = 10
-          ExplicitWidth = 819
-          ExplicitHeight = 33
-        end
-        inherited BtFiltrar: TUniBitBtn
-          ExplicitLeft = 845
-        end
-      end
-    end
     inherited Tab2: TUniTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 941
-      ExplicitHeight = 429
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
           ScrollHeight = 35
@@ -99,7 +50,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
                 Font.Height = -19
                 Font.Name = 'Calibri'
                 TabOrder = 1
-                ExplicitWidth = 154
               end
             end
           end
@@ -112,8 +62,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
             ParentColor = False
             Align = alLeft
             TabOrder = 1
-            ExplicitTop = 0
-            ExplicitHeight = 562
           end
           object UniSimplePanel7: TUniSimplePanel
             Left = 17
@@ -138,9 +86,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
             LayoutConfig.Margin = '0'
             LayoutConfig.ColumnWidth = 0.250000000000000000
             LayoutConfig.ColSpan = 2
-            ExplicitTop = 0
-            ExplicitWidth = 895
-            ExplicitHeight = 562
             ScrollHeight = 392
             ScrollWidth = 905
             object UniSimplePanel5: TUniSimplePanel
@@ -156,7 +101,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
               Layout = 'column'
               LayoutAttribs.Columns = 3
               LayoutConfig.Height = '100%'
-              ExplicitWidth = 922
               object UniSimplePanel11: TUniSimplePanel
                 AlignWithMargins = True
                 Left = 3
@@ -201,7 +145,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
               Layout = 'column'
               LayoutAttribs.Columns = 3
               LayoutConfig.Height = '100%'
-              ExplicitWidth = 922
               object UniSimplePanel1: TUniSimplePanel
                 AlignWithMargins = True
                 Left = 3
@@ -245,7 +188,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
               Layout = 'column'
               LayoutAttribs.Columns = 3
               LayoutConfig.Height = '100%'
-              ExplicitWidth = 922
               object UniSimplePanel2: TUniSimplePanel
                 AlignWithMargins = True
                 Left = 3
@@ -292,7 +234,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
               Layout = 'column'
               LayoutAttribs.Columns = 3
               LayoutConfig.Height = '100%'
-              ExplicitWidth = 922
               object UniSimplePanel4: TUniSimplePanel
                 AlignWithMargins = True
                 Left = 3
@@ -334,9 +275,6 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
             ParentColor = False
             Align = alRight
             TabOrder = 3
-            ExplicitLeft = 912
-            ExplicitTop = 0
-            ExplicitHeight = 562
           end
         end
       end
@@ -371,6 +309,7 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
         Size = 60
       end
       item
+        Name = 'FDQryCadField5'
         DataType = ftInteger
       end>
     SequenceName = 'GEN_EMPRESA_ID'
@@ -434,14 +373,14 @@ inherited frmEmpresaUsuaria: TfrmEmpresaUsuaria
     Params = <
       item
         DataType = ftString
-        Name = 'NOME'
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, NOME, CNPJ, EMAIL From EMPRESA WHERE NOME LIKE :N' +
-        'OME || '#39'%'#39
+        'Select CODIGO, NOME, CNPJ, EMAIL From EMPRESA WHERE NOME LIKE :P' +
+        '01 || '#39'%'#39
       'ORDER BY CODIGO')
     object FDQryFiltroCODIGO: TIntegerField
       FieldName = 'CODIGO'

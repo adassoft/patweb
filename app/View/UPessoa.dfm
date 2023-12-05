@@ -425,14 +425,19 @@ inherited frmCadPessoa: TfrmCadPessoa
     Params = <
       item
         DataType = ftString
-        Name = 'NOME'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, MASP, NOME, TELEFONE From PESSOA WHERE NOME LIKE ' +
-        ':NOME || '#39'%'#39
+        'Select CODIGO, MASP, NOME, TELEFONE From PESSOA WHERE CODIEMPRES' +
+        'A=:CODIEMPRESA AND NOME LIKE :P01   || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'PESSOA'
     object FDQryFiltroCODIGO: TIntegerField

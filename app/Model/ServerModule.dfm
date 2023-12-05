@@ -11,6 +11,7 @@ object UniServerModule: TUniServerModule
       '.min.css'
     'https://use.fontawesome.com/releases/v5.8.1/css/all.css'
     '/files/css/customcss.css')
+  ServerLimits.SessionRestrict = srOnePerPC
   SSL.SSLOptions.RootCertFile = 'root.pem'
   SSL.SSLOptions.CertFile = 'cert.pem'
   SSL.SSLOptions.KeyFile = 'key.pem'

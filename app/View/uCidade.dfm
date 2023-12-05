@@ -1,11 +1,13 @@
 inherited frmCidades: TfrmCidades
   inherited PageCadastro: TUniPageControl
-    ActivePage = Tab2
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
           ScrollHeight = 130
           ScrollWidth = 710
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 5
+          end
           object UniDBEdit1: TUniDBEdit
             Left = 16
             Top = 22
@@ -204,14 +206,14 @@ inherited frmCidades: TfrmCidades
     Params = <
       item
         DataType = ftString
-        Name = 'DESCRICAO'
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
         'Select CODIGO, DESCRICAO, UF,  CEP, CODIIBGE From CIDADES WHERE ' +
-        'DESCRICAO LIKE :DESCRICAO || '#39'%'#39
+        'DESCRICAO LIKE :P01 || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'CIDADES'
     object FDQryFiltroCODIGO: TIntegerField

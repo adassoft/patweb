@@ -4,10 +4,11 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
     inherited Tab2: TUniTabSheet
       inherited UniPanel1: TUniPanel
         inherited UniScrollBox1: TUniScrollBox
-          ExplicitLeft = 2
-          ExplicitTop = -2
           ScrollHeight = 58
           ScrollWidth = 710
+          inherited UniSimplePanel19: TUniSimplePanel
+            TabOrder = 2
+          end
           object UniDBEdit1: TUniDBEdit
             Left = 16
             Top = 22
@@ -53,7 +54,6 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
     AutoIncAsInteger = True
     SequenceName = 'GEN_MOTIVOSTRANSFERENCIA_ID'
     SequenceField = 'CODIGO'
-    BinaryRequest = True
     Params = <
       item
         DataType = ftSmallint
@@ -98,14 +98,19 @@ inherited frmMotivoTransferencia: TfrmMotivoTransferencia
     Params = <
       item
         DataType = ftString
-        Name = 'MOTIVO'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
-        'Select CODIGO, MOTIVO From MOTIVOSTRANSFERENCIA WHERE MOTIVO LIK' +
-        'E :MOTIVO   || '#39'%'#39
+        'Select CODIGO, MOTIVO From MOTIVOSTRANSFERENCIA WHERE CODIEMPRES' +
+        'A=:CODIEMPRESA AND MOTIVO LIKE :P01   || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'MOTIVOSTRANSFERENCIA'
     object FDQryFiltroCODIGO: TSmallintField

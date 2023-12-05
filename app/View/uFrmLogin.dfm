@@ -4,6 +4,7 @@ object fLogin: TfLogin
   ClientHeight = 651
   ClientWidth = 801
   Caption = 'flogin'
+  OnShow = UniLoginFormShow
   BorderStyle = bsNone
   WindowState = wsMaximized
   Position = poDesigned
@@ -12,6 +13,7 @@ object fLogin: TfLogin
   MonitoredKeys.Keys = <>
   LayoutConfig.Cls = 'fLogin'
   OnBeforeShow = UniLoginFormBeforeShow
+  OnDestroy = UniLoginFormDestroy
   OnScreenResize = UniLoginFormScreenResize
   TextHeight = 15
   object imgBG: TUniImage
@@ -26,7 +28,6 @@ object fLogin: TfLogin
     LayoutConfig.Height = '101%'
     LayoutConfig.Width = '101%'
     LayoutConfig.Margin = '0'
-    ExplicitHeight = 801
   end
   object pnLogin: TUniPanel
     Left = 200

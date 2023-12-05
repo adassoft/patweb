@@ -1,4 +1,5 @@
 object dmComum: TdmComum
+  OnDestroy = DataModuleDestroy
   Height = 638
   Width = 774
   object FDQryUnidade: TRESTDWClientSQL
@@ -288,8 +289,8 @@ object dmComum: TdmComum
   end
   object dsCidade: TDataSource
     DataSet = FDQryCidade
-    Left = 196
-    Top = 448
+    Left = 172
+    Top = 528
   end
   object dsSetor: TDataSource
     DataSet = FDQrySetor
@@ -331,8 +332,8 @@ object dmComum: TdmComum
     ThreadRequest = False
     RaiseErrors = True
     ReflectChanges = False
-    Left = 72
-    Top = 448
+    Left = 64
+    Top = 528
     object FDQrySetorCODIGO: TIntegerField
       FieldName = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -475,12 +476,16 @@ object dmComum: TdmComum
     Top = 258
   end
   object FDQryEmpresa: TRESTDWClientSQL
-    Capacity = 4
-    Active = True
+    Active = False
     Filtered = False
     FieldDefs = <
       item
-        Name = 'CODIGO'
+        Name = 'CODIUSUARIO'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODIEMPRESA'
         Attributes = [faRequired]
         DataType = ftInteger
       end
@@ -525,8 +530,13 @@ object dmComum: TdmComum
     ReflectChanges = False
     Left = 296
     Top = 16
-    object FDQryEmpresaCODIGO: TIntegerField
-      FieldName = 'CODIGO'
+    object FDQryEmpresaCODIUSUARIO: TIntegerField
+      FieldName = 'CODIUSUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQryEmpresaCODIEMPRESA: TIntegerField
+      FieldName = 'CODIEMPRESA'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
@@ -534,5 +544,10 @@ object dmComum: TdmComum
       FieldName = 'NOME'
       Size = 60
     end
+  end
+  object dsEmpresa: TDataSource
+    DataSet = FDQryEmpresa
+    Left = 296
+    Top = 88
   end
 end

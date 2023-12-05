@@ -9,7 +9,7 @@ uses
   uniImageList, uniMultiItem, uniComboBox, uniDBComboBox, uniDBLookupComboBox,
   uniPanel, uniScrollBox, uniBasicGrid, uniDBGrid, uniGUIClasses, uniEdit,
   uniPageControl, uniButton, uniBitBtn, uniLabel, MainModule, uniDBEdit, Utils,
-  ClassAuxiliar;
+  ClassAuxiliar, ClassAlert;
 
 type
   TfrmEmpresaUsuaria = class(TFrameBase)
@@ -41,6 +41,7 @@ type
     FDQryCadEMAIL: TStringField;
     procedure UniDBEdit3Exit(Sender: TObject);
     procedure UniDBEdit4Exit(Sender: TObject);
+    procedure BtFiltrarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,23 +55,56 @@ implementation
 
 {$R *.dfm}
 
+procedure TfrmEmpresaUsuaria.BtFiltrarClick(Sender: TObject);
+var i : integer;
+begin
+
+   if ( EdPesquisar.Text = EmptyStr ) then
+       Begin
+          FDQryFiltro.Close ;
+         abort ;
+       End;
+
+
+    // Abre a query do filtro
+    if  FDQryCad.State in [dsEdit,dsInsert] then
+    begin
+         UniAlert.SwAlerta('ATENÇÃO' , 'Registro está em modo de Edição ', Aviso , 3000);
+         abort ;
+    end;
+
+     FDQryFiltro.Close;
+
+     FDQryFiltro.ParamByName('P01').AsString := '%'+EdPesquisar.Text;
+
+     FDQryFiltro.Open;
+
+    SetBut(tpListacomRegistros);
+
+    UniDbGrid1.SetFocus ; // Joga o Foco para o Grid ;
+
+end;
+
 procedure TfrmEmpresaUsuaria.UniDBEdit3Exit(Sender: TObject);
 begin
   inherited;
   // Validar o CNPJ digitado
-  if Length(Trim(UniDBEdit3.Text)) > 11 then
+  if (Length(Trim(UniDBEdit3.Text)) > 0) then
   begin
-      if not(ClassAuxiliar.Acoes.ValidaCNPJ_CPF(UniDBEdit3.Text)) then
-      begin
-       ShowMessage('O CNPJ digitado não é válido');
-       UniDBEdit3.SetFocus;
-       Abort;
-      end;
-  end else
-  begin
-    ShowMessage('O CNPJ digitado não é válidosss');
-    UniDBEdit3.SetFocus;
-    Abort;
+    if (Length(Trim(UniDBEdit3.Text)) > 11) then
+    begin
+        if not(ClassAuxiliar.Acoes.ValidaCNPJ_CPF(UniDBEdit3.Text)) then
+        begin
+         ShowMessage('O CNPJ digitado não é válido.');
+         UniDBEdit3.SetFocus;
+         Abort;
+        end;
+    end else
+    begin
+      ShowMessage('Confira o CNPJ digitado.');
+      UniDBEdit3.SetFocus;
+      Abort;
+    end;
   end;
 end;
 

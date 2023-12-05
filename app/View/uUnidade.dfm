@@ -26,6 +26,11 @@ inherited frmCadUnidade: TfrmCadUnidade
           ExplicitHeight = 819
           ScrollHeight = 849
           ScrollWidth = 696
+          inherited UniSimplePanel19: TUniSimplePanel
+            Width = 922
+            TabOrder = 19
+            ExplicitWidth = 922
+          end
           object UniDBEdit4: TUniDBEdit
             Left = 16
             Top = 80
@@ -631,14 +636,20 @@ inherited frmCadUnidade: TfrmCadUnidade
     Params = <
       item
         DataType = ftString
-        Name = 'UNIDADE'
+        Name = 'CODIEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'P01'
         ParamType = ptInput
       end>
     DataBase = UniMainModule.RESTDWIdDatabase
     SQL.Strings = (
       
         'Select CODIGO, ORGAO, UNIDADE, RESPON_UNIDADE, EMAIL, TELEFONES ' +
-        'From UNIDADE WHERE UNIDADE LIKE :UNIDADE   || '#39'%'#39
+        'From UNIDADE WHERE CODIEMPRESA=:CODIEMPRESA AND UNIDADE LIKE :P0' +
+        '1   || '#39'%'#39
       'ORDER BY CODIGO')
     UpdateTableName = 'UNIDADE'
     Left = 852
